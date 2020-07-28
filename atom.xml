@@ -5,9 +5,9 @@
   <subtitle>亂寫亂想亂筆記</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yanennnnn.github.io.git/"/>
+  <link href="https://yanennnnn.github.io/"/>
   <updated>2020-07-28T04:57:23.237Z</updated>
-  <id>http://yanennnnn.github.io.git/</id>
+  <id>https://yanennnnn.github.io/</id>
   
   <author>
     <name>yanennnnn</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Fetch應用</title>
-    <link href="http://yanennnnn.github.io.git/2020/07/27/2020/Fetch%E6%87%89%E7%94%A8/"/>
-    <id>http://yanennnnn.github.io.git/2020/07/27/2020/Fetch應用/</id>
+    <link href="https://yanennnnn.github.io/2020/07/27/2020/Fetch%E6%87%89%E7%94%A8/"/>
+    <id>https://yanennnnn.github.io/2020/07/27/2020/Fetch應用/</id>
     <published>2020-07-27T09:47:04.000Z</published>
     <updated>2020-07-28T04:57:23.237Z</updated>
     
@@ -31,12 +31,12 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="http://yanennnnn.github.io.git/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://yanennnnn.github.io/categories/JavaScript/"/>
     
     
-      <category term="JavaScript" scheme="http://yanennnnn.github.io.git/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="https://yanennnnn.github.io/tags/JavaScript/"/>
     
-      <category term="AJAX" scheme="http://yanennnnn.github.io.git/tags/AJAX/"/>
+      <category term="AJAX" scheme="https://yanennnnn.github.io/tags/AJAX/"/>
     
   </entry>
   
