@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Fetch應用</title>
-    <url>/2020/07/27/2020/Fetch%E6%87%89%E7%94%A8/</url>
+    <url>/20200727/ckd5k1dyb0003ow7klrjl96uh/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近參加了六角的js學徒特訓班，剛好需要抓取遠端資料，之前有嘗試過<code>XMLHttpRequest</code>和框架<code>axios</code>，這次來試試看如果使用Fetch是要怎麼抓取資料</p>
 <a id="more"></a>
 
