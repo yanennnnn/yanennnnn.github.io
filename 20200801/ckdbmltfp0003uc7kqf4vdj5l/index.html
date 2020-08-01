@@ -118,7 +118,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JavaScript,ES6,const 和 let 的應用">
 
 
 
@@ -131,17 +131,18 @@
 
 
 
-<meta name="description" content="新手走走看看亂逛逛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="https://yanennnnn.github.io/categories/index.html">
+<meta name="description" content="前言剛開始接觸 JavaScript 時，最先使用的宣告方式是 var，慢慢的開始學會了 ES6 的 let 和 const ，所以就來筆記一下他們的不同  文章啟發於六角學院的 JS 學徒特訓班第三十八關">
+<meta name="keywords" content="JavaScript,ES6,const 和 let 的應用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS 趴趴走 - ES6 const &amp; let">
+<meta property="og:url" content="https://yanennnnn.github.io/20200801/ckdbmltfp0003uc7kqf4vdj5l/index.html">
 <meta property="og:site_name" content="Code。YuKun">
-<meta property="og:description" content="新手走走看看亂逛逛">
+<meta property="og:description" content="前言剛開始接觸 JavaScript 時，最先使用的宣告方式是 var，慢慢的開始學會了 ES6 的 let 和 const ，所以就來筆記一下他們的不同  文章啟發於六角學院的 JS 學徒特訓班第三十八關">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2020-07-27T07:49:35.916Z">
+<meta property="og:updated_time" content="2020-08-01T12:21:55.268Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="新手走走看看亂逛逛">
+<meta name="twitter:title" content="JS 趴趴走 - ES6 const &amp; let">
+<meta name="twitter:description" content="前言剛開始接觸 JavaScript 時，最先使用的宣告方式是 var，慢慢的開始學會了 ES6 的 let 和 const ，所以就來筆記一下他們的不同  文章啟發於六角學院的 JS 學徒特訓班第三十八關">
 
 
 
@@ -171,13 +172,13 @@
 
 
 
-  <link rel="canonical" href="https://yanennnnn.github.io/categories/">
+  <link rel="canonical" href="https://yanennnnn.github.io/20200801/ckdbmltfp0003uc7kqf4vdj5l/">
 
 
 
 
 
-  <title>categories | Code。YuKun</title>
+  <title>JS 趴趴走 - ES6 const & let | Code。YuKun</title>
   
 
 
@@ -347,40 +348,214 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yanennnnn.github.io/20200801/ckdbmltfp0003uc7kqf4vdj5l/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yanennnnn">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code。YuKun">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h2 class="post-title" itemprop="name headline">categories</h2>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共計 1 個分類
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">3</span></li></ul>
-            </div>
-          </div>
+          <h2 class="post-title" itemprop="name headline">JS 趴趴走 - ES6 const & let</h2>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-08-01T15:39:26+08:00">
+                2020-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>剛開始接觸 JavaScript 時，最先使用的宣告方式是 <code>var</code>，慢慢的開始學會了 ES6 的 <code>let</code> 和 <code>const</code> ，所以就來筆記一下他們的不同</p>
+<blockquote>
+<p>文章啟發於六角學院的 JS 學徒特訓班第三十八關</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="const-vs-let-vs-var"><a href="#const-vs-let-vs-var" class="headerlink" title="const vs let vs var"></a>const vs let vs var</h2><p><code>const</code> 、 <code>let</code> 以及 <code>var</code> 都是用來宣告變數，他們都是宣告變數，為什麼明明有了 <code>var</code> 還要增加 <code>const</code> 和 <code>let</code> 呢?<br>其實就是為了修正 <code>var</code> 的一些缺點</p>
+<h3 id="作用域-汙染全域"><a href="#作用域-汙染全域" class="headerlink" title="作用域(汙染全域)"></a>作用域(汙染全域)</h3><p><code>var</code> 屬於作用域屬於<em>函式作用域</em>，意思就是<code>var</code> 變數的範圍在 <code>function</code> </p>
+<blockquote>
+<p>“作用範圍(scope)”或稱之為”作用域”，指的是”變數或常數的定義與語句可見(被存取得到)的範圍”</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a=<span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//ReferenceError: a is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>從上面例子來看，因為屬於函式作用域(function scope)，我們不能從 <code>function</code> 內拿到 <code>a</code> 值 ，也就是說只能在函式內才能使用</p>
+<p>而 <code>const</code> 和 <code>let</code> 屬於<em>區塊作用域</em>，區塊如 <code>if</code>、<code>for</code>、<code>switch</code>、<code>while</code> 等等有使用區塊(<code>{ }</code>)語句</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="keyword">let</span> a=<span class="number">100</span>;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//ReferenceError: a is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">  <span class="keyword">const</span> b=<span class="string">'我不能來出來'</span>;</span><br><span class="line">  <span class="keyword">var</span>  c=<span class="string">'我可以拿出來'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">//我可以拿出來</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//ReferenceError: b is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>以 <code>funtion</code> 一樣也是會出現錯誤，但我們使用 <code>if</code> 發現用 <code>var</code> 宣告的 <code>c</code> 是可以取到值的，而 <code>b</code> 則不行<br>再來我們使用「開發人員工具」輸入 <code>window</code> 去搜尋，會發現 <code>c</code> 竟然變成全域變數了，由此得知使用 <code>const</code> 和 <code>let</code> 可以確保不會污染到全域</p>
+<h3 id="重複宣告"><a href="#重複宣告" class="headerlink" title="重複宣告"></a>重複宣告</h3><p>我們來看看以下問題答案是什麼</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//範例一</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="number">10</span>;</span><br><span class="line">a=<span class="number">123</span>;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">234</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//範例二</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">1</span>;</span><br><span class="line">b=<span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> c = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> c = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//範例三</span></span><br><span class="line"><span class="keyword">const</span> d = <span class="number">3</span>;</span><br><span class="line">d=<span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>範例一 : <code>var</code> 是允許重複宣告的也可以重新賦值，而且即使在同一個作用域，同樣名稱的變數也允許重複宣告，所以 <code>a</code> 答案就是 234 </li>
+<li>範例二 : <code>let</code> 與 <code>var</code> 的不同點在於不能重複宣告，所以 <code>b</code> 答案是 3 ，而 <code>c</code> 的答案則是 <code>Identifier &#39;c&#39; has already been declared</code></li>
+<li>範例三 : <code>const</code> 則是不能重複宣告也不能重新賦值，只能用來宣告常數(在 ES6 中的定義是constant variable 固定的變數)，所以 <code>d</code> 的答案是 <code>Assignment to constant variable.</code></li>
+</ul>
+<h4 id="const-的特性"><a href="#const-的特性" class="headerlink" title="const 的特性"></a>const 的特性</h4><p><code>const</code>除了以上特性外，對於物件和陣列來說若只是傳參考也可以使用，另外還有一點就是必須一定要有值，對於<code>var</code> 和 <code>let</code> 宣告變數可以不賦予值，但 <code>const</code> 不賦值就會出錯</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a; <span class="comment">//Missing initializer in const declaration</span></span><br></pre></td></tr></table></figure>
+
+<p><em>其實可以這樣想你都要宣告一個變數了怎麼可能還不賦予值對吧XDD，而 <code>const</code> 又不能更動值，所以邏輯上<code>const</code>就一定要有值囉</em></p>
+<blockquote>
+<p>關於<code>const</code>使用在物件或者陣列上，參考這篇 <a href="https://yanennnnn.github.io/20200728/ckdbcf3nd0000hc7kbnvc1juz/#more">文章</a></p>
+</blockquote>
+<h3 id="Hoisting-變量提升"><a href="#Hoisting-變量提升" class="headerlink" title="Hoisting 變量提升"></a>Hoisting 變量提升</h3><p>使用 <code>var</code> 宣告變數時，會有一種特性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<p>答案竟然不是 <code>a is not defined</code> 而是 <code>undefined</code>，這是因為<em>Hoisting</em>的關係</p>
+<p><code>var</code>有提升，那 <code>const</code> 和 <code>let</code>呢?</p>
+<pre><code class="javascript"><span class="built_in">console</span>.log(b); <span class="comment">//ReferenceError: b is not defined</span>
+<span class="keyword">let</span> b=<span class="number">123</span>;
+</code></pre>
+<p>是 <code>b is not defined</code>耶，這樣說明是不是代表沒有提升囉? 哦不不不，哦不不不，我看你是 too young too simple(誤</p>
+<p>其實是 <code>const</code> 和 <code>let</code> 也是存在變量提升的，但因為 <em>暫時死區（Temporal Dead Zone，TDZ)</em> 的關係，才會感覺沒有提升</p>
+<blockquote>
+<p>TDZ : 如宣告變數前存取該變數會產生 <code>ReferenceError</code> 錯誤，這就是稱為 暫時死區 (Temporal Dead Zone)</p>
+</blockquote>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>最後簡單整理一個表格提供參考，也可以知道何時該用什麼方法宣告<br>             |  var  | let  | const<br>————-|:—–:|—–:| —-<br>作用域(範圍)  |  函式 | 區塊 | 區塊<br>重複宣告      |  可   | 不可 | 不可<br>重新賦值      |  可   |  可  | 不可<br>變量提升      |  有   |  有  |  有</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+            <a href="/tags/ES6/" rel="tag"><i class="fa fa-tag"></i> ES6</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/20200728/ckdbmltfv0004uc7kj193lzgy/" rel="next" title="JS 趴趴走 - ES6 關於 const 的宣告">
+                <i class="fa fa-chevron-left"></i> JS 趴趴走 - ES6 關於 const 的宣告
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -413,8 +588,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -481,6 +665,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const-vs-let-vs-var"><span class="nav-number">2.</span> <span class="nav-text">const vs let vs var</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域-汙染全域"><span class="nav-number">2.1.</span> <span class="nav-text">作用域(汙染全域)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重複宣告"><span class="nav-number">2.2.</span> <span class="nav-text">重複宣告</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#const-的特性"><span class="nav-number">2.2.1.</span> <span class="nav-text">const 的特性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hoisting-變量提升"><span class="nav-number">2.3.</span> <span class="nav-text">Hoisting 變量提升</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#總結"><span class="nav-number">3.</span> <span class="nav-text">總結</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
