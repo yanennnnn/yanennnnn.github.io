@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yanennnnn.github.io/"/>
-  <updated>2020-08-01T14:29:25.918Z</updated>
+  <updated>2020-08-25T07:17:46.597Z</updated>
   <id>https://yanennnnn.github.io/</id>
   
   <author>
@@ -17,9 +17,32 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>六角 - JS 實戰班心得 </title>
+    <link href="https://yanennnnn.github.io/20200825/cke9maoxw0008107kk6ccm587/"/>
+    <id>https://yanennnnn.github.io/20200825/cke9maoxw0008107kk6ccm587/</id>
+    <published>2020-08-25T06:36:07.000Z</published>
+    <updated>2020-08-25T07:17:46.597Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://i.imgur.com/ley4HZ3.png" alt></p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當時剛把 Vue 的最終作業完成了，但是那時候覺得自己對 Vue 還不夠了解，這時候剛好六角學院了 JS 直播班，想著那不如就來參加，也可以增加自己的熟悉度</p><a id="more"></a><h2 id="第一～第八週的學習過程"><a href="#第一～第八週的學習過程" class="headerlink" title="第一～第八週的學習過程"></a>第一～第八週的學習過程</h2><h3 id="開課時的小任務"><a href="#開課時的小任務" class="headerlink" title="開課時的小任務"></a>開課時的小任務</h3><p>開課前老師有給一些 JS 觀念影片給學員，是 JS 核心觀念一些內容，因為當初有買這個課程，所以當時就想不如就當作複習，順便做了一些筆記或者修改之前的筆記，最後這些筆記讓我在實作的時候，能快速找到自己要的東西， 所以說筆記挺重要的XD</p><p>還有每日任務，其實自己做的還蠻開心的(? 看自己每天都有執行，不僅能知道哪裡還是不懂加上每天都有花一點時間做每日任務也不會讓自己跟程式脫節太久，尤其是 Vue 的 <code>emit</code> 和 <code>props</code> 上完課後，搭配每日任務又更加深我的印象，比以前自己看影片時還來的知道如何使用他們。</p><h3 id="直播課期間"><a href="#直播課期間" class="headerlink" title="直播課期間"></a>直播課期間</h3><p>到了開課，因為是直播的關係，儘管之後有影片，但覺得在直播的時候會比自己看影片會更專心；之前已經有上過 Vue 的課程，所以直播時我都是以複習來看待，發現之前不懂的地方在這次直播都蠻清楚的，有些不懂得比之前看的還明白，就像我剛剛所說的 <code>emit</code> 和 <code>props</code>。</p><p>期間每週上完都會有主線任務，以前自己做最終作業的時候都要一直看別人的，到現在慢慢的可以自己摸出一些來，尤其是週六的加碼作業講解還有助教的講解，也讓我懂得如何應用，了解這段程式為什麼要這樣寫</p><h2 id="結論分享"><a href="#結論分享" class="headerlink" title="結論分享"></a>結論分享</h2><p>我覺得直播班其實可以入手，雖然比自己購買課程會比較貴，但因為是直播，會有時間的限制，可以讓你的懶癌減少一點，若金錢允許也可以一起購買課程，我是兩個地方都會看，畢竟當下說的不一定剛好對到你的點，加上剛剛所說有時間的限制，所以可能導致很多東西其實你還沒吸收好又要進入下一個階段了，所以這時候有買課程的話就可以從另外一方面了解意思</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/ley4HZ3.png&quot; alt&gt;&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;當時剛把 Vue 的最終作業完成了，但是那時候覺得自己對 Vue 還不夠了解，這時候剛好六角學院了 JS 直播班，想著那不如就來參加，也可以增加自己的熟悉度&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="六角學院" scheme="https://yanennnnn.github.io/categories/%E5%85%AD%E8%A7%92%E5%AD%B8%E9%99%A2/"/>
+    
+    
+      <category term="活動心得" scheme="https://yanennnnn.github.io/tags/%E6%B4%BB%E5%8B%95%E5%BF%83%E5%BE%97/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JS 趴趴走 - ES6 const &amp; let</title>
-    <link href="https://yanennnnn.github.io/20200801/ckdbmltfp0003uc7kqf4vdj5l/"/>
-    <id>https://yanennnnn.github.io/20200801/ckdbmltfp0003uc7kqf4vdj5l/</id>
+    <link href="https://yanennnnn.github.io/20200801/cke9maoxl0003107kpfx2aonf/"/>
+    <id>https://yanennnnn.github.io/20200801/cke9maoxl0003107kpfx2aonf/</id>
     <published>2020-08-01T07:39:26.000Z</published>
     <updated>2020-08-01T14:29:25.918Z</updated>
     
@@ -45,8 +68,8 @@
   
   <entry>
     <title>JS 趴趴走 - ES6 關於 const 的宣告</title>
-    <link href="https://yanennnnn.github.io/20200728/ckdbmltfv0004uc7kj193lzgy/"/>
-    <id>https://yanennnnn.github.io/20200728/ckdbmltfv0004uc7kj193lzgy/</id>
+    <link href="https://yanennnnn.github.io/20200728/cke9maoxu0007107kkz6tk6ym/"/>
+    <id>https://yanennnnn.github.io/20200728/cke9maoxu0007107kkz6tk6ym/</id>
     <published>2020-07-28T06:33:10.000Z</published>
     <updated>2020-08-01T07:36:54.553Z</updated>
     
@@ -69,8 +92,8 @@
   
   <entry>
     <title>JS 趴趴走 - ES6 Fetch 應用</title>
-    <link href="https://yanennnnn.github.io/20200727/ckdbmltg20007uc7k4dubi7ce/"/>
-    <id>https://yanennnnn.github.io/20200727/ckdbmltg20007uc7k4dubi7ce/</id>
+    <link href="https://yanennnnn.github.io/20200727/cke9maoxq0004107k9wk9hcsg/"/>
+    <id>https://yanennnnn.github.io/20200727/cke9maoxq0004107k9wk9hcsg/</id>
     <published>2020-07-27T09:47:04.000Z</published>
     <updated>2020-08-01T07:36:52.684Z</updated>
     

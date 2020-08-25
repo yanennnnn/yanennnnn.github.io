@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>JS 趴趴走 - ES6 const &amp; let</title>
-    <url>/20200801/ckdbmltfp0003uc7kqf4vdj5l/</url>
+    <url>/20200801/cke9maoxl0003107kpfx2aonf/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>剛開始接觸 JavaScript 時，最先使用的宣告方式是 <code>var</code>，慢慢的開始學會了 ES6 的 <code>let</code> 和 <code>const</code> ，所以就來筆記一下他們的不同</p>
 <blockquote>
 <p>文章啟發於六角學院的 JS 學徒特訓班第三十八關</p>
@@ -94,8 +94,40 @@
       </tags>
   </entry>
   <entry>
+    <title>JS 趴趴走 - ES6 Fetch 應用</title>
+    <url>/20200727/cke9maoxq0004107k9wk9hcsg/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近參加了六角的js學徒特訓班，剛好需要抓取遠端資料，之前有嘗試過<code>XMLHttpRequest</code>和框架<code>axios</code>，這次來試試看如果使用Fetch是要怎麼抓取資料</p>
+<a id="more"></a>
+
+<h2 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h2><p><code>Fetch</code>和<code>XMLHttpRequest</code>一樣都是用來存取伺服器端的資料，以往使用<code>XMLHttpRequest</code>時會發現步驟很多</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 宣告一個XMLHttpRequest物件</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest(); </span><br><span class="line"><span class="comment">// 定義連線方式</span></span><br><span class="line">xhr.open(<span class="string">'get'</span>, <span class="string">'網址'</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 送出請求</span></span><br><span class="line">xhr.send();</span><br><span class="line"><span class="comment">// 如果成功就執行 </span></span><br><span class="line">xhr.onload=<span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">console</span>.log(xhr.responseText); </span><br><span class="line"><span class="comment">// 失敗就 xhrError()</span></span><br><span class="line">xhr.onerror=<span class="function">(<span class="params">err</span>)=&gt;</span> <span class="built_in">console</span>.log(err);</span><br></pre></td></tr></table></figure>
+
+<p>而Fetch就大大減少這些步驟，使用<code>Promise</code>的方式抓取資料，借用六角學院的api(感謝六角學院提供練習XD)</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fetch(<span class="string">'https://raw.githubusercontent.com/hexschool/hexschoolNewbieJS/master/data.json'</span>)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res.json());</span><br><span class="line">    <span class="keyword">return</span> res.json(); <span class="comment">//透過json()方法獲取資訊</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">err</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>我們返回了<code>res.json()</code>獲取資料後，此時的資料得到的是<code>promise</code>對象，而我們所要的值就在<code>PromiseValue</code>裡面</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="string">[[PromiseStatus]]</span>: <span class="string">"fulfilled"</span> //實現（fulfilled）：表示操作成功完成。</span><br><span class="line"><span class="string">[[PromiseValue]]</span>: Array(<span class="number">221</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在Promise的文件中，<code>[[PromiseValue]]</code>是個內部變量，外部無法得到，只能在<code>then</code>中獲取。所以需要第二次的<code>then</code>來接收</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> url=<span class="string">'https://raw.githubusercontent.com/hexschool/hexschoolNewbieJS/master/data.json'</span>;</span><br><span class="line">fetch(url)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> res.json(); <span class="comment">//返回的的資料會傳到下一個then</span></span><br><span class="line">&#125;).then(<span class="function">(<span class="params">data</span>)=&gt;</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>最後記得要加上<code>catch</code>(失敗導向)</p>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>使用Fetch過後，真的比以往的XMLHttpRequest或jQuery AJAX來的簡潔，認為跟框架的axios有一點像；這次剛好只碰到GET，以後看有沒有機會學習到其他方法~</p>
+<hr>
+<h3 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h3><p><a href="https://ithelp.ithome.com.tw/articles/10194388" target="_blank" rel="noopener">ES6 Fetch 遠端資料方法</a><br><a href="https://www.itdaan.com/tw/36577774e82c253cffa236a9608d8aa4" target="_blank" rel="noopener">結合promise對原生fetch的兩個then用法理解</a><br><a href="https://www.oxxostudio.tw/articles/201908/js-fetch.html" target="_blank" rel="noopener">JavaScript Fetch API 使用教學</a></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>ES6</tag>
+        <tag>AJAX</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JS 趴趴走 - ES6 關於 const 的宣告</title>
-    <url>/20200728/ckdbmltfv0004uc7kj193lzgy/</url>
+    <url>/20200728/cke9maoxu0007107kkz6tk6ym/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天的文章啟發於六角學院的Js學徒特訓班第三十七關，除了<code>var</code>宣告變數之外，我們也可以使用ES6的<code>let</code>和<code>const</code></p>
 <a id="more"></a>
 
@@ -138,35 +170,23 @@
       </tags>
   </entry>
   <entry>
-    <title>JS 趴趴走 - ES6 Fetch 應用</title>
-    <url>/20200727/ckdbmltg20007uc7k4dubi7ce/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近參加了六角的js學徒特訓班，剛好需要抓取遠端資料，之前有嘗試過<code>XMLHttpRequest</code>和框架<code>axios</code>，這次來試試看如果使用Fetch是要怎麼抓取資料</p>
+    <title>六角 - JS 實戰班心得 </title>
+    <url>/20200825/cke9maoxw0008107kk6ccm587/</url>
+    <content><![CDATA[<p><img src="https://i.imgur.com/ley4HZ3.png" alt></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當時剛把 Vue 的最終作業完成了，但是那時候覺得自己對 Vue 還不夠了解，這時候剛好六角學院了 JS 直播班，想著那不如就來參加，也可以增加自己的熟悉度</p>
 <a id="more"></a>
 
-<h2 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h2><p><code>Fetch</code>和<code>XMLHttpRequest</code>一樣都是用來存取伺服器端的資料，以往使用<code>XMLHttpRequest</code>時會發現步驟很多</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 宣告一個XMLHttpRequest物件</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest(); </span><br><span class="line"><span class="comment">// 定義連線方式</span></span><br><span class="line">xhr.open(<span class="string">'get'</span>, <span class="string">'網址'</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 送出請求</span></span><br><span class="line">xhr.send();</span><br><span class="line"><span class="comment">// 如果成功就執行 </span></span><br><span class="line">xhr.onload=<span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">console</span>.log(xhr.responseText); </span><br><span class="line"><span class="comment">// 失敗就 xhrError()</span></span><br><span class="line">xhr.onerror=<span class="function">(<span class="params">err</span>)=&gt;</span> <span class="built_in">console</span>.log(err);</span><br></pre></td></tr></table></figure>
-
-<p>而Fetch就大大減少這些步驟，使用<code>Promise</code>的方式抓取資料，借用六角學院的api(感謝六角學院提供練習XD)</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fetch(<span class="string">'https://raw.githubusercontent.com/hexschool/hexschoolNewbieJS/master/data.json'</span>)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res.json());</span><br><span class="line">    <span class="keyword">return</span> res.json(); <span class="comment">//透過json()方法獲取資訊</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">err</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-
-<p>我們返回了<code>res.json()</code>獲取資料後，此時的資料得到的是<code>promise</code>對象，而我們所要的值就在<code>PromiseValue</code>裡面</p>
-<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="string">[[PromiseStatus]]</span>: <span class="string">"fulfilled"</span> //實現（fulfilled）：表示操作成功完成。</span><br><span class="line"><span class="string">[[PromiseValue]]</span>: Array(<span class="number">221</span>)</span><br></pre></td></tr></table></figure>
-
-<p>在Promise的文件中，<code>[[PromiseValue]]</code>是個內部變量，外部無法得到，只能在<code>then</code>中獲取。所以需要第二次的<code>then</code>來接收</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> url=<span class="string">'https://raw.githubusercontent.com/hexschool/hexschoolNewbieJS/master/data.json'</span>;</span><br><span class="line">fetch(url)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> res.json(); <span class="comment">//返回的的資料會傳到下一個then</span></span><br><span class="line">&#125;).then(<span class="function">(<span class="params">data</span>)=&gt;</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>最後記得要加上<code>catch</code>(失敗導向)</p>
-<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>使用Fetch過後，真的比以往的XMLHttpRequest或jQuery AJAX來的簡潔，認為跟框架的axios有一點像；這次剛好只碰到GET，以後看有沒有機會學習到其他方法~</p>
-<hr>
-<h3 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h3><p><a href="https://ithelp.ithome.com.tw/articles/10194388" target="_blank" rel="noopener">ES6 Fetch 遠端資料方法</a><br><a href="https://www.itdaan.com/tw/36577774e82c253cffa236a9608d8aa4" target="_blank" rel="noopener">結合promise對原生fetch的兩個then用法理解</a><br><a href="https://www.oxxostudio.tw/articles/201908/js-fetch.html" target="_blank" rel="noopener">JavaScript Fetch API 使用教學</a></p>
+<h2 id="第一～第八週的學習過程"><a href="#第一～第八週的學習過程" class="headerlink" title="第一～第八週的學習過程"></a>第一～第八週的學習過程</h2><h3 id="開課時的小任務"><a href="#開課時的小任務" class="headerlink" title="開課時的小任務"></a>開課時的小任務</h3><p>開課前老師有給一些 JS 觀念影片給學員，是 JS 核心觀念一些內容，因為當初有買這個課程，所以當時就想不如就當作複習，順便做了一些筆記或者修改之前的筆記，最後這些筆記讓我在實作的時候，能快速找到自己要的東西， 所以說筆記挺重要的XD</p>
+<p>還有每日任務，其實自己做的還蠻開心的(? 看自己每天都有執行，不僅能知道哪裡還是不懂加上每天都有花一點時間做每日任務也不會讓自己跟程式脫節太久，尤其是 Vue 的 <code>emit</code> 和 <code>props</code> 上完課後，搭配每日任務又更加深我的印象，比以前自己看影片時還來的知道如何使用他們。</p>
+<h3 id="直播課期間"><a href="#直播課期間" class="headerlink" title="直播課期間"></a>直播課期間</h3><p>到了開課，因為是直播的關係，儘管之後有影片，但覺得在直播的時候會比自己看影片會更專心；之前已經有上過 Vue 的課程，所以直播時我都是以複習來看待，發現之前不懂的地方在這次直播都蠻清楚的，有些不懂得比之前看的還明白，就像我剛剛所說的 <code>emit</code> 和 <code>props</code>。</p>
+<p>期間每週上完都會有主線任務，以前自己做最終作業的時候都要一直看別人的，到現在慢慢的可以自己摸出一些來，尤其是週六的加碼作業講解還有助教的講解，也讓我懂得如何應用，了解這段程式為什麼要這樣寫</p>
+<h2 id="結論分享"><a href="#結論分享" class="headerlink" title="結論分享"></a>結論分享</h2><p>我覺得直播班其實可以入手，雖然比自己購買課程會比較貴，但因為是直播，會有時間的限制，可以讓你的懶癌減少一點，若金錢允許也可以一起購買課程，我是兩個地方都會看，畢竟當下說的不一定剛好對到你的點，加上剛剛所說有時間的限制，所以可能導致很多東西其實你還沒吸收好又要進入下一個階段了，所以這時候有買課程的話就可以從另外一方面了解意思</p>
 ]]></content>
       <categories>
-        <category>JavaScript</category>
+        <category>六角學院</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
-        <tag>ES6</tag>
-        <tag>AJAX</tag>
+        <tag>活動心得</tag>
       </tags>
   </entry>
 </search>
