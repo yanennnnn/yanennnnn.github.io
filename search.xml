@@ -3,7 +3,8 @@
   <entry>
     <title>JS 趴趴走 - ES6 關於 const 的宣告</title>
     <url>/20200728/ckecfhlvn0003ic7kitc1xonk/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天的文章啟發於六角學院的Js學徒特訓班第三十七關，除了<code>var</code>宣告變數之外，我們也可以使用ES6的<code>let</code>和<code>const</code></p>
+    <content><![CDATA[<p><img src="https://i.imgur.com/n9iFZz1.png" alt></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天的文章啟發於六角學院的Js學徒特訓班第三十七關，除了<code>var</code>宣告變數之外，我們也可以使用ES6的<code>let</code>和<code>const</code></p>
 <a id="more"></a>
 
 
@@ -47,7 +48,7 @@
   <entry>
     <title>HTML 小知識 - 區塊元素 vs 行內元素</title>
     <url>/20200826/ckecfhlvr0004ic7kdkcwr981/</url>
-    <content><![CDATA[<p><img src="https://i.imgur.com/n9iFZz1.png" alt></p>
+    <content><![CDATA[<p><img src="https://i.imgur.com/wUurW9q.png" alt></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>使用那麼多次 HTML 元素卻很少去了解它屬於什麼元素，所以來記錄一下我們常見的區塊元素和行內元素</p>
 <p>順便也能了解一些元素之間的小禁忌</p>
 <a id="more"></a>
@@ -106,10 +107,8 @@
 <p>上下的 <code>padding</code>、<code>margin</code> 為 <code>padding-top</code> ,<code>padding-bottom</code>, <code>margin-top</code>, <code>margin-bottom</code></p>
 </blockquote>
 <h3 id="行內元素包含"><a href="#行內元素包含" class="headerlink" title="行內元素包含"></a>行內元素包含</h3><ul>
-<li><p>a - 連結</p>
-<br></li>
-<li><p>短語元素</p>
-<ul>
+<li>a - 連結<br></li>
+<li>短語元素<ul>
 <li>abbr - 縮寫標記</li>
 <li>acronym -首字母縮寫</li>
 <li>b - 文字加粗</li>
@@ -125,25 +124,22 @@
 <li>small - 字體變小</li>
 <li>span - 常用行內元素，定義文字內區塊</li>
 <li>sub - 下標</li>
-<li>sup - 上標</li>
+<li>sup - 上標<br></li>
 </ul>
 </li>
-<li><p>電腦術語元素</p>
-<ul>
+<li>電腦術語元素<ul>
 <li>code - 程式碼的片段</li>
 <li>kbd - 定義鍵盤文字</li>
 <li>var - 定義變量<br></li>
 </ul>
 </li>
-<li><p>其他元素</p>
-<ul>
+<li>其他元素<ul>
 <li>output - 表單輸出</li>
 <li>select - 項目選單</li>
 <li>textarea - 多行文本輸入框<br></li>
 </ul>
 </li>
-<li><p>空元素</p>
-<ul>
+<li>空元素<ul>
 <li>br - 換行</li>
 <li>img - 圖片</li>
 <li>input - 輸入框</li>
@@ -186,7 +182,8 @@
   <entry>
     <title>JS 趴趴走 - ES6 const &amp; let</title>
     <url>/20200801/ckecfhlvx0007ic7k5klrox6g/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>剛開始接觸 JavaScript 時，最先使用的宣告方式是 <code>var</code>，慢慢的開始學會了 ES6 的 <code>let</code> 和 <code>const</code> ，所以就來筆記一下他們的不同</p>
+    <content><![CDATA[<p><img src="https://i.imgur.com/n9iFZz1.png" alt></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>剛開始接觸 JavaScript 時，最先使用的宣告方式是 <code>var</code>，慢慢的開始學會了 ES6 的 <code>let</code> 和 <code>const</code> ，所以就來筆記一下他們的不同</p>
 <blockquote>
 <p>文章啟發於六角學院的 JS 學徒特訓班第三十八關</p>
 </blockquote>
@@ -279,7 +276,8 @@
   <entry>
     <title>JS 趴趴走 - ES6 Fetch 應用</title>
     <url>/20200727/ckecfhlvy0008ic7kziynw1x9/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近參加了六角的js學徒特訓班，剛好需要抓取遠端資料，之前有嘗試過<code>XMLHttpRequest</code>和框架<code>axios</code>，這次來試試看如果使用Fetch是要怎麼抓取資料</p>
+    <content><![CDATA[<p><img src="https://i.imgur.com/n9iFZz1.png" alt></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近參加了六角的js學徒特訓班，剛好需要抓取遠端資料，之前有嘗試過<code>XMLHttpRequest</code>和框架<code>axios</code>，這次來試試看如果使用Fetch是要怎麼抓取資料</p>
 <a id="more"></a>
 
 <h2 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h2><p><code>Fetch</code>和<code>XMLHttpRequest</code>一樣都是用來存取伺服器端的資料，以往使用<code>XMLHttpRequest</code>時會發現步驟很多</p>
