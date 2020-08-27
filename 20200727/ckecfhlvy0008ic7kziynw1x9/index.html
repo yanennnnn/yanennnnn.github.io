@@ -118,7 +118,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="javascript,Fetch">
 
 
 
@@ -131,17 +131,18 @@
 
 
 
-<meta name="description" content="新手走走看看亂逛逛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://yanennnnn.github.io/tags/index.html">
+<meta name="description" content="前言最近參加了六角的js學徒特訓班，剛好需要抓取遠端資料，之前有嘗試過XMLHttpRequest和框架axios，這次來試試看如果使用Fetch是要怎麼抓取資料">
+<meta name="keywords" content="javascript,Fetch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS 趴趴走 - ES6 Fetch 應用">
+<meta property="og:url" content="https://yanennnnn.github.io/20200727/ckecfhlvy0008ic7kziynw1x9/index.html">
 <meta property="og:site_name" content="Code。YuKun">
-<meta property="og:description" content="新手走走看看亂逛逛">
+<meta property="og:description" content="前言最近參加了六角的js學徒特訓班，剛好需要抓取遠端資料，之前有嘗試過XMLHttpRequest和框架axios，這次來試試看如果使用Fetch是要怎麼抓取資料">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2020-07-27T07:49:14.802Z">
+<meta property="og:updated_time" content="2020-08-01T07:36:52.684Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="新手走走看看亂逛逛">
+<meta name="twitter:title" content="JS 趴趴走 - ES6 Fetch 應用">
+<meta name="twitter:description" content="前言最近參加了六角的js學徒特訓班，剛好需要抓取遠端資料，之前有嘗試過XMLHttpRequest和框架axios，這次來試試看如果使用Fetch是要怎麼抓取資料">
 
 
 
@@ -171,13 +172,13 @@
 
 
 
-  <link rel="canonical" href="https://yanennnnn.github.io/tags/">
+  <link rel="canonical" href="https://yanennnnn.github.io/20200727/ckecfhlvy0008ic7kziynw1x9/">
 
 
 
 
 
-  <title>tags | Code。YuKun</title>
+  <title>JS 趴趴走 - ES6 Fetch 應用 | Code。YuKun</title>
   
 
 
@@ -347,40 +348,188 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yanennnnn.github.io/20200727/ckecfhlvy0008ic7kziynw1x9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yanennnnn">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code。YuKun">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h2 class="post-title" itemprop="name headline">tags</h2>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共計 5 個標籤
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/AJAX/" style="font-size: 12px; color: #ccc">AJAX</a> <a href="/tags/ES6/" style="font-size: 30px; color: #111">ES6</a> <a href="/tags/HTML/" style="font-size: 12px; color: #ccc">HTML</a> <a href="/tags/JavaScript/" style="font-size: 30px; color: #111">JavaScript</a> <a href="/tags/活動心得/" style="font-size: 12px; color: #ccc">活動心得</a>
-            </div>
-          </div>
+          <h2 class="post-title" itemprop="name headline">JS 趴趴走 - ES6 Fetch 應用</h2>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-07-27T17:47:04+08:00">
+                2020-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近參加了六角的js學徒特訓班，剛好需要抓取遠端資料，之前有嘗試過<code>XMLHttpRequest</code>和框架<code>axios</code>，這次來試試看如果使用Fetch是要怎麼抓取資料</p>
+<a id="more"></a>
+
+<h2 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h2><p><code>Fetch</code>和<code>XMLHttpRequest</code>一樣都是用來存取伺服器端的資料，以往使用<code>XMLHttpRequest</code>時會發現步驟很多</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 宣告一個XMLHttpRequest物件</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest(); </span><br><span class="line"><span class="comment">// 定義連線方式</span></span><br><span class="line">xhr.open(<span class="string">'get'</span>, <span class="string">'網址'</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 送出請求</span></span><br><span class="line">xhr.send();</span><br><span class="line"><span class="comment">// 如果成功就執行 </span></span><br><span class="line">xhr.onload=<span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">console</span>.log(xhr.responseText); </span><br><span class="line"><span class="comment">// 失敗就 xhrError()</span></span><br><span class="line">xhr.onerror=<span class="function">(<span class="params">err</span>)=&gt;</span> <span class="built_in">console</span>.log(err);</span><br></pre></td></tr></table></figure>
+
+<p>而Fetch就大大減少這些步驟，使用<code>Promise</code>的方式抓取資料，借用六角學院的api(感謝六角學院提供練習XD)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'https://raw.githubusercontent.com/hexschool/hexschoolNewbieJS/master/data.json'</span>)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res.json());</span><br><span class="line">    <span class="keyword">return</span> res.json(); <span class="comment">//透過json()方法獲取資訊</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">err</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>我們返回了<code>res.json()</code>獲取資料後，此時的資料得到的是<code>promise</code>對象，而我們所要的值就在<code>PromiseValue</code>裡面</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">[[PromiseStatus]]</span>: <span class="string">"fulfilled"</span> //實現（fulfilled）：表示操作成功完成。</span><br><span class="line"><span class="string">[[PromiseValue]]</span>: Array(<span class="number">221</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在Promise的文件中，<code>[[PromiseValue]]</code>是個內部變量，外部無法得到，只能在<code>then</code>中獲取。所以需要第二次的<code>then</code>來接收</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> url=<span class="string">'https://raw.githubusercontent.com/hexschool/hexschoolNewbieJS/master/data.json'</span>;</span><br><span class="line">fetch(url)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> res.json(); <span class="comment">//返回的的資料會傳到下一個then</span></span><br><span class="line">&#125;).then(<span class="function">(<span class="params">data</span>)=&gt;</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>最後記得要加上<code>catch</code>(失敗導向)</p>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>使用Fetch過後，真的比以往的XMLHttpRequest或jQuery AJAX來的簡潔，認為跟框架的axios有一點像；這次剛好只碰到GET，以後看有沒有機會學習到其他方法~</p>
+<hr>
+<h3 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h3><p><a href="https://ithelp.ithome.com.tw/articles/10194388" target="_blank" rel="noopener">ES6 Fetch 遠端資料方法</a><br><a href="https://www.itdaan.com/tw/36577774e82c253cffa236a9608d8aa4" target="_blank" rel="noopener">結合promise對原生fetch的兩個then用法理解</a><br><a href="https://www.oxxostudio.tw/articles/201908/js-fetch.html" target="_blank" rel="noopener">JavaScript Fetch API 使用教學</a></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+            <a href="/tags/ES6/" rel="tag"><i class="fa fa-tag"></i> ES6</a>
+          
+            <a href="/tags/AJAX/" rel="tag"><i class="fa fa-tag"></i> AJAX</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/20200728/ckecfhlvn0003ic7kitc1xonk/" rel="prev" title="JS 趴趴走 - ES6 關於 const 的宣告">
+                JS 趴趴走 - ES6 關於 const 的宣告 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -413,8 +562,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -481,6 +639,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fetch"><span class="nav-number">2.</span> <span class="nav-text">Fetch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#結論"><span class="nav-number">3.</span> <span class="nav-text">結論</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#參考文獻"><span class="nav-number">3.1.</span> <span class="nav-text">參考文獻</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
