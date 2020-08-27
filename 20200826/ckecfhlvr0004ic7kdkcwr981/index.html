@@ -131,20 +131,20 @@
 
 
 
-<meta name="description" content="前言使用那麼多次 HTML 元素卻很少去了解它屬於什麼元素，所以來記錄一下我們常見的區塊元素和行內元素 順便也能了解一些元素之間的小禁忌 區塊元素(block)區塊元素（或稱區塊層級元素），可以設置 width、height，在一般默認下的區塊元素，寬度會跟隨父層寬度，故而不允許其他元素佔據其相同水平空間，對應的 display 為 block；區塊元素的矩形結構稱之為盒模型(box model">
+<meta name="description" content="前言使用那麼多次 HTML 元素卻很少去了解它屬於什麼元素，所以來記錄一下我們常見的區塊元素和行內元素 順便也能了解一些元素之間的小禁忌">
 <meta name="keywords" content="HTML,區塊元素,行內元素,HTML 元素">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML 小知識 - 區塊元素 vs 行內元素">
 <meta property="og:url" content="https://yanennnnn.github.io/20200826/ckecfhlvr0004ic7kdkcwr981/index.html">
 <meta property="og:site_name" content="Code。YuKun">
-<meta property="og:description" content="前言使用那麼多次 HTML 元素卻很少去了解它屬於什麼元素，所以來記錄一下我們常見的區塊元素和行內元素 順便也能了解一些元素之間的小禁忌 區塊元素(block)區塊元素（或稱區塊層級元素），可以設置 width、height，在一般默認下的區塊元素，寬度會跟隨父層寬度，故而不允許其他元素佔據其相同水平空間，對應的 display 為 block；區塊元素的矩形結構稱之為盒模型(box model">
+<meta property="og:description" content="前言使用那麼多次 HTML 元素卻很少去了解它屬於什麼元素，所以來記錄一下我們常見的區塊元素和行內元素 順便也能了解一些元素之間的小禁忌">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="https://imgur.com/n9iFZz1">
-<meta property="og:updated_time" content="2020-08-27T06:30:23.670Z">
+<meta property="og:image" content="https://i.imgur.com/n9iFZz1.png">
+<meta property="og:updated_time" content="2020-08-27T06:39:39.624Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML 小知識 - 區塊元素 vs 行內元素">
-<meta name="twitter:description" content="前言使用那麼多次 HTML 元素卻很少去了解它屬於什麼元素，所以來記錄一下我們常見的區塊元素和行內元素 順便也能了解一些元素之間的小禁忌 區塊元素(block)區塊元素（或稱區塊層級元素），可以設置 width、height，在一般默認下的區塊元素，寬度會跟隨父層寬度，故而不允許其他元素佔據其相同水平空間，對應的 display 為 block；區塊元素的矩形結構稱之為盒模型(box model">
-<meta name="twitter:image" content="https://imgur.com/n9iFZz1">
+<meta name="twitter:description" content="前言使用那麼多次 HTML 元素卻很少去了解它屬於什麼元素，所以來記錄一下我們常見的區塊元素和行內元素 順便也能了解一些元素之間的小禁忌">
+<meta name="twitter:image" content="https://i.imgur.com/n9iFZz1.png">
 
 
 
@@ -451,29 +451,28 @@
       
 
       
-        <p><img src="https://imgur.com/n9iFZz1" alt></p>
+        <p><img src="https://i.imgur.com/n9iFZz1.png" alt></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>使用那麼多次 HTML 元素卻很少去了解它屬於什麼元素，所以來記錄一下我們常見的區塊元素和行內元素</p>
 <p>順便也能了解一些元素之間的小禁忌</p>
+<a id="more"></a>
+
 <h2 id="區塊元素-block"><a href="#區塊元素-block" class="headerlink" title="區塊元素(block)"></a>區塊元素(block)</h2><p>區塊元素（或稱區塊層級元素），可以設置 <code>width</code>、<code>height</code>，在一般默認下的區塊元素，寬度會跟隨父層寬度，故而不允許其他元素佔據其相同水平空間，對應的 <code>display</code> 為 <code>block</code>；區塊元素的矩形結構稱之為盒模型(box model)，由 <code>content</code>、<code>padding</code>、<code>border</code>、<code>margin</code>所組成</p>
 <h3 id="區塊元素包含"><a href="#區塊元素包含" class="headerlink" title="區塊元素包含"></a>區塊元素包含</h3><ul>
-<li><p>文字</p>
-<ul>
+<li>文字<ul>
 <li>p - 段落</li>
-<li>h1, h2, h3, h4, h5, h6 - 標題 </li>
+<li>h1, h2, h3, h4, h5, h6 - 標題 <br></li>
 </ul>
 </li>
-<li><p>列表 </p>
-<ul>
+<li>列表 <ul>
 <li>dl - 定義列表-清單</li>
 <li>dt - 定義列表-項目</li>
 <li>dd - 定義列表-描述</li>
 <li>ol - 有排序之編號清單</li>
 <li>ul - 未排序之項目符號清單</li>
-<li>li - 清單中之列表項目</li>
+<li>li - 清單中之列表項目<br></li>
 </ul>
 </li>
-<li><p>其他區塊元素 </p>
-<ul>
+<li>其他區塊元素 <ul>
 <li>address - 地址</li>
 <li>blockquote - 塊引用</li>
 <li>div - 區塊</li>
@@ -495,11 +494,10 @@
 <li>table - 表格</li>
 <li>tfoot - 表格腳尾</li>
 <li>video -嵌入媒體播放器</li>
-<li>audio -嵌入音頻播放器</li>
+<li>audio -嵌入音頻播放器<br></li>
 </ul>
 </li>
-<li><p>空元素</p>
-<ul>
+<li>空元素<ul>
 <li>hr - 水平分隔線</li>
 </ul>
 </li>
@@ -507,13 +505,13 @@
 <blockquote>
 <p>只有開始標籤而沒有結束標籤的就稱為空元素</p>
 </blockquote>
-<h3 id="行內元素-inline"><a href="#行內元素-inline" class="headerlink" title="行內元素(inline)"></a>行內元素(inline)</h3><p>又稱內聯元素，和其他元素都在一行上，相臨的行内元素会排列在同一行；無法設置 <code>width</code> 、 <code>height ，只能靠內容撐起來，上下的 <code>padding</code> 和 <code>margin</code> 設置會無效，但左右的有效，對應的 <code>display</code> 為 <code>inline</code></code></p>
+<h3 id="行內元素-inline"><a href="#行內元素-inline" class="headerlink" title="行內元素(inline)"></a>行內元素(inline)</h3><p>又稱內聯元素，和其他元素都在一行上，相臨的行内元素会排列在同一行；無法設置 <code>width</code> 、 <code>height</code> ，只能靠內容撐起來，上下的 <code>padding</code> 和 <code>margin</code> 設置會無效，但左右的有效，對應的 <code>display</code> 為 <code>inline</code></p>
 <blockquote>
 <p>上下的 <code>padding</code>、<code>margin</code> 為 <code>padding-top</code> ,<code>padding-bottom</code>, <code>margin-top</code>, <code>margin-bottom</code></p>
 </blockquote>
 <h3 id="行內元素包含"><a href="#行內元素包含" class="headerlink" title="行內元素包含"></a>行內元素包含</h3><ul>
 <li><p>a - 連結</p>
-</li>
+<br></li>
 <li><p>短語元素</p>
 <ul>
 <li>abbr - 縮寫標記</li>
@@ -538,14 +536,14 @@
 <ul>
 <li>code - 程式碼的片段</li>
 <li>kbd - 定義鍵盤文字</li>
-<li>var - 定義變量</li>
+<li>var - 定義變量<br></li>
 </ul>
 </li>
 <li><p>其他元素</p>
 <ul>
 <li>output - 表單輸出</li>
 <li>select - 項目選單</li>
-<li>textarea - 多行文本輸入框</li>
+<li>textarea - 多行文本輸入框<br></li>
 </ul>
 </li>
 <li><p>空元素</p>
@@ -570,13 +568,13 @@
 <h2 id="特例規則"><a href="#特例規則" class="headerlink" title="特例規則"></a>特例規則</h2><p>基本上區塊元素可以包含行內元素和某些區塊元素，行內元素不能包含區塊元素，只能包含行內元素，但有些小特例，例如:</p>
 <ul>
 <li><p>a 連結幾乎都能包含，不能包含 a 連結</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//錯誤示範</span><br><span class="line">&lt;a href=&quot;#&quot;&gt;</span><br><span class="line">    &lt;a href=&quot;#&quot;&gt;test&lt;/a&gt;</span><br><span class="line">&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//錯誤示範</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>test<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>p 段落不能包含區塊元素</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//錯誤示範</span><br><span class="line">&lt;p&gt;</span><br><span class="line"> &lt;div&gt;&lt;/div&gt;</span><br><span class="line">&lt;/p&gt;  </span><br><span class="line">&lt;h1&gt;</span><br><span class="line">  &lt;p&gt;test&lt;/p&gt;</span><br><span class="line">&lt;h1&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//錯誤示範</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>test<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>li 標籤可以包含 div 以及他的父元素 ul, ol</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol&gt;</span><br><span class="line">  &lt;li&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;ul&gt;</span><br><span class="line">        &lt;li&gt;123&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;456&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;789&lt;/li&gt;</span><br><span class="line">      &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>123<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>456<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>789<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
