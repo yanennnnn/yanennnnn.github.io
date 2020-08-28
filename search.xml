@@ -1,90 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>JS 趴趴走 - ES6 const &amp; let</title>
-    <url>/posts/JavaScript/b5b19c96/</url>
+    <title>JS 趴趴走 - ES6 Fetch 應用</title>
+    <url>/javascript/20200727/483210d8/</url>
     <content><![CDATA[<p><img src="https://i.imgur.com/n9iFZz1.png" alt></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>剛開始接觸 JavaScript 時，最先使用的宣告方式是 <code>var</code>，慢慢的開始學會了 ES6 的 <code>let</code> 和 <code>const</code> ，所以就來筆記一下他們的不同</p>
-<blockquote>
-<p>文章啟發於六角學院的 JS 學徒特訓班第三十八關</p>
-</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近參加了六角的js學徒特訓班，剛好需要抓取遠端資料，之前有嘗試過<code>XMLHttpRequest</code>和框架<code>axios</code>，這次來試試看如果使用Fetch是要怎麼抓取資料</p>
 <a id="more"></a>
 
-<h2 id="const-vs-let-vs-var"><a href="#const-vs-let-vs-var" class="headerlink" title="const vs let vs var"></a>const vs let vs var</h2><p><code>const</code> 、 <code>let</code> 以及 <code>var</code> 都是用來宣告變數，他們都是宣告變數，為什麼明明有了 <code>var</code> 還要增加 <code>const</code> 和 <code>let</code> 呢?<br>其實就是為了修正 <code>var</code> 的一些缺點</p>
-<h3 id="作用域-汙染全域"><a href="#作用域-汙染全域" class="headerlink" title="作用域(汙染全域)"></a>作用域(汙染全域)</h3><p><code>var</code> 屬於作用域屬於<strong>函式作用域</strong>，意思就是<code>var</code> 變數的範圍在 <code>function</code> </p>
-<blockquote>
-<p>作用範圍(scope)又稱作用域，指的是變數或常數的定義與語句可見(被存取得到)的範圍</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a);   <span class="comment">//ReferenceError: a is not defined</span></span><br></pre></td></tr></table></figure>
+<h2 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h2><p><code>Fetch</code>和<code>XMLHttpRequest</code>一樣都是用來存取伺服器端的資料，以往使用<code>XMLHttpRequest</code>時會發現步驟很多</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 宣告一個XMLHttpRequest物件</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest(); </span><br><span class="line"><span class="comment">// 定義連線方式</span></span><br><span class="line">xhr.open(<span class="string">'get'</span>, <span class="string">'網址'</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 送出請求</span></span><br><span class="line">xhr.send();</span><br><span class="line"><span class="comment">// 如果成功就執行 </span></span><br><span class="line">xhr.onload=<span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">console</span>.log(xhr.responseText); </span><br><span class="line"><span class="comment">// 失敗就 xhrError()</span></span><br><span class="line">xhr.onerror=<span class="function">(<span class="params">err</span>)=&gt;</span> <span class="built_in">console</span>.log(err);</span><br></pre></td></tr></table></figure>
 
-<p>從上面例子來看，因為屬於函式作用域(function scope)，我們不能從 <code>function</code> 內拿到 <code>a</code> 值 ，也就是說只能在函式內才能使用</p>
-<p>而 <code>const</code> 和 <code>let</code> 屬於<strong>區塊作用域</strong>，區塊如 <code>if</code>、<code>for</code>、<code>switch</code>、<code>while</code> 等等有使用區塊(<code>{ }</code>)語句</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">let</span> a = <span class="number">100</span>;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(a);   <span class="comment">//ReferenceError: a is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> b = <span class="string">'我不能來出來'</span>;</span><br><span class="line">  <span class="keyword">var</span> c = <span class="string">'我可以拿出來'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(c);   <span class="comment">//我可以拿出來</span></span><br><span class="line"><span class="built_in">console</span>.log(b);   <span class="comment">//ReferenceError: b is not defined</span></span><br></pre></td></tr></table></figure>
+<p>而Fetch就大大減少這些步驟，使用<code>Promise</code>的方式抓取資料，借用六角學院的api(感謝六角學院提供練習XD)</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fetch(<span class="string">'https://raw.githubusercontent.com/hexschool/hexschoolNewbieJS/master/data.json'</span>)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res.json());</span><br><span class="line">    <span class="keyword">return</span> res.json(); <span class="comment">//透過json()方法獲取資訊</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">err</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 
-<p>以 <code>funtion</code> 一樣也是會出現錯誤，但我們使用 <code>if</code> 發現用 <code>var</code> 宣告的 <code>c</code> 是可以取到值的，而 <code>b</code> 則不行</p>
-<p>再來我們使用「開發人員工具」輸入 <code>window</code> 去搜尋，會發現 <code>c</code> 竟然變成全域變數了，由此得知使用 <code>const</code> 和 <code>let</code> 可以確保不會污染到全域</p>
-<h3 id="重複宣告"><a href="#重複宣告" class="headerlink" title="重複宣告"></a>重複宣告</h3><p>我們來看看以下問題答案是什麼</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//範例一</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">a = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">234</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//範例二</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">1</span>;</span><br><span class="line">b = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> c = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> c = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//範例三</span></span><br><span class="line"><span class="keyword">const</span> d = <span class="number">3</span>;</span><br><span class="line">d = <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+<p>我們返回了<code>res.json()</code>獲取資料後，此時的資料得到的是<code>promise</code>對象，而我們所要的值就在<code>PromiseValue</code>裡面</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="string">[[PromiseStatus]]</span>: <span class="string">"fulfilled"</span> //實現（fulfilled）：表示操作成功完成。</span><br><span class="line"><span class="string">[[PromiseValue]]</span>: Array(<span class="number">221</span>)</span><br></pre></td></tr></table></figure>
 
+<p>在Promise的文件中，<code>[[PromiseValue]]</code>是個內部變量，外部無法得到，只能在<code>then</code>中獲取。所以需要第二次的<code>then</code>來接收</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> url=<span class="string">'https://raw.githubusercontent.com/hexschool/hexschoolNewbieJS/master/data.json'</span>;</span><br><span class="line">fetch(url)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> res.json(); <span class="comment">//返回的的資料會傳到下一個then</span></span><br><span class="line">&#125;).then(<span class="function">(<span class="params">data</span>)=&gt;</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>最後記得要加上<code>catch</code>(失敗導向)</p>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>使用Fetch過後，真的比以往的XMLHttpRequest或jQuery AJAX來的簡潔，認為跟框架的axios有一點像；這次剛好只碰到GET，以後看有沒有機會學習到其他方法~</p>
+<hr>
+<h3 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h3><p><a href="https://ithelp.ithome.com.tw/articles/10194388" target="_blank" rel="noopener">ES6 Fetch 遠端資料方法</a><br><a href="https://www.itdaan.com/tw/36577774e82c253cffa236a9608d8aa4" target="_blank" rel="noopener">結合promise對原生fetch的兩個then用法理解</a><br><a href="https://www.oxxostudio.tw/articles/201908/js-fetch.html" target="_blank" rel="noopener">JavaScript Fetch API 使用教學</a></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>AJAX</tag>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS 趴趴走 - ES6 關於 const 的宣告</title>
+    <url>/javascript/20200728/eccdaf7f/</url>
+    <content><![CDATA[<p><img src="https://i.imgur.com/n9iFZz1.png" alt></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天的文章啟發於六角學院的Js學徒特訓班第三十七關，除了<code>var</code>宣告變數之外，我們也可以使用ES6的<code>let</code>和<code>const</code></p>
+<a id="more"></a>
+
+
+<h2 id="let和const宣告"><a href="#let和const宣告" class="headerlink" title="let和const宣告"></a>let和const宣告</h2><p>首先了解let和const都屬於用來宣告的，他們兩者最大差異是</p>
 <ul>
-<li>範例一 : <code>var</code> 是允許重複宣告的也可以重新賦值，而且即使在同一個作用域，同樣名稱的變數也允許重複宣告，所以 <code>a</code> 答案就是 234 </li>
-<li>範例二 : <code>let</code> 與 <code>var</code> 的不同點在於不能重複宣告，所以 <code>b</code> 答案是 3 ，而 <code>c</code> 的答案則是 <code>Identifier &#39;c&#39; has already been declared</code></li>
-<li>範例三 : <code>const</code> 則是不能重複宣告也不能重新賦值，只能用來宣告常數(在 ES6 中的定義是constant variable 固定的變數)，所以 <code>d</code> 的答案是 <code>Assignment to constant variable.</code></li>
+<li>let: 用來宣告變數，可以被重新指定值</li>
+<li>const: 用來宣告常數(變數)，不能重新指定值</li>
 </ul>
-<h4 id="const-的特性"><a href="#const-的特性" class="headerlink" title="const 的特性"></a>const 的特性</h4><p><code>const</code>除了以上特性外，對於物件和陣列來說若只是傳參考也可以使用，另外還有一點就是必須一定要有值，對於<code>var</code> 和 <code>let</code> 宣告變數可以不賦予值，但 <code>const</code> 不賦值就會出錯</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> a;   <span class="comment">//Missing initializer in const declaration</span></span><br></pre></td></tr></table></figure>
+<p>所以當我們宣告的時候，就會寫成這樣</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a=<span class="string">'曉華'</span>;</span><br><span class="line"><span class="keyword">const</span> b=<span class="string">'小鎮'</span>;</span><br><span class="line">a=<span class="string">'小明'</span>;</span><br><span class="line">b=<span class="string">'aaa'</span>;<span class="comment">//Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
 
-<p><small>其實可以這樣想你都要宣告一個變數了怎麼可能還不賦予值對吧XDD，而 const 又不能更動值，所以邏輯上 const 就一定要有值囉</small></p>
-<blockquote>
-<p>關於<code>const</code>使用在物件或者陣列上，參考這篇 <a href="https://yanennnnn.github.io/20200728/ckdbcf3nd0000hc7kbnvc1juz/#more">文章</a></p>
-</blockquote>
-<h3 id="Hoisting-變量提升"><a href="#Hoisting-變量提升" class="headerlink" title="Hoisting 變量提升"></a>Hoisting 變量提升</h3><p>使用 <code>var</code> 宣告變數時，會有一種特性</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<p>使用<code>const</code>宣告就不能改值了，會發生錯誤</p>
+<h2 id="const宣告物件和陣列"><a href="#const宣告物件和陣列" class="headerlink" title="const宣告物件和陣列"></a>const宣告物件和陣列</h2><p>當你要宣告會改變值的時，下意識會認為那就使用let，這次我們使用const宣告物件和陣列試試看</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr=[];</span><br><span class="line">arr.push(<span class="number">123</span>);</span><br></pre></td></tr></table></figure>
 
-<p>答案竟然不是 <code>a is not defined</code> 而是 <code>undefined</code>，這是因為<strong>Hoisting</strong>的關係</p>
-<p><code>var</code>有提升，那 <code>const</code> 和 <code>let</code>呢?</p>
-<pre><code class="javascript"><span class="built_in">console</span>.log(b);  <span class="comment">//ReferenceError: b is not defined</span>
-<span class="keyword">let</span> b = <span class="number">123</span>;</code></pre>
-<p>是 <code>b is not defined</code>耶，這樣說明是不是代表沒有提升囉? 哦不不不，哦不不不，我看你是 too young too simple(誤</p>
-<p>其實是 <code>const</code> 和 <code>let</code> 也是存在變量提升的，但因為 <strong>暫時死區（Temporal Dead Zone，TDZ)</strong> 的關係，才會感覺沒有提升</p>
-<blockquote>
-<p><strong>TDZ</strong> : 如宣告變數前存取該變數會產生 <code>ReferenceError</code> 錯誤，這就是稱為 暫時死區 (Temporal Dead Zone)</p>
+<p>會發現竟然沒出錯，這是因為JS中的陣列和物件都是屬於 Pass by reference，也就是我們所說的傳址，以上述範例來說它只是把數值放在同一個記憶體的位置，沒有指向其他地方，自然就不會產生錯誤了</p>
+<p>這點物件也是同樣的</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj=&#123;</span><br><span class="line">    a:<span class="string">'小名'</span>,</span><br><span class="line">    b:<span class="string">'曉華'</span>,</span><br><span class="line">    c:<span class="string">'小鎮'</span></span><br><span class="line">&#125;;</span><br><span class="line">obj.a=<span class="string">'名小小'</span></span><br><span class="line"><span class="built_in">console</span>.log(obj) <span class="comment">//&#123;a: "名小小", b: "曉華", c: "小鎮"&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>但要記住，一旦跟改位置，就不能使用<code>const</code>方式宣告了</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj2=&#123;</span><br><span class="line">    a:<span class="string">'小名'</span>,</span><br><span class="line">    b:<span class="string">'曉華'</span>,</span><br><span class="line">    c:<span class="string">'小鎮'</span></span><br><span class="line">&#125;;</span><br><span class="line">obj2=&#123;</span><br><span class="line"> a:<span class="string">'名小小'</span> </span><br><span class="line">&#125;<span class="comment">//Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
+
+<p>最後放個範例</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'小名'</span>;</span><br><span class="line"><span class="keyword">const</span> age = <span class="number">16</span>;</span><br><span class="line"><span class="keyword">let</span> city = <span class="string">'台北市'</span>;</span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name: <span class="string">'曉華'</span>,</span><br><span class="line">  height: <span class="number">155</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> myWallet = &#123;</span><br><span class="line">  money: <span class="number">1000</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">city = <span class="string">'台中市'</span>;</span><br><span class="line">person.height = <span class="number">160</span>;</span><br><span class="line">myWallet = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>可以看出來，用<code>const</code>宣告的值為不可更改，若使用物件更改為同一個記憶體位置可以使用<code>const</code>，若重新指向新的記憶體則依然使用<code>let</code></p>
+<hr>
+<h3 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h3><blockquote>
+<p>對於 Pass by reference 可以參考以下文章</p>
 </blockquote>
-<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>最後簡單整理一個表格提供參考，也可以知道何時該用什麼方法宣告</p>
-<table>
-<thead>
-<tr>
-<th align="center"></th>
-<th align="center">var</th>
-<th align="center">let</th>
-<th align="center">const</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">作用域(範圍)</td>
-<td align="center">函式</td>
-<td align="center">區塊</td>
-<td align="center">區塊</td>
-</tr>
-<tr>
-<td align="center">重複宣告</td>
-<td align="center">可</td>
-<td align="center">不可</td>
-<td align="center">不可</td>
-</tr>
-<tr>
-<td align="center">重新賦值</td>
-<td align="center">可</td>
-<td align="center">可</td>
-<td align="center">不可</td>
-</tr>
-<tr>
-<td align="center">變量提升</td>
-<td align="center">有</td>
-<td align="center">有</td>
-<td align="center">有</td>
-</tr>
-</tbody></table>
+<p><a href="https://ithelp.ithome.com.tw/articles/10191057" target="_blank" rel="noopener">重新認識 JavaScript: Day 05 JavaScript 是「傳值」或「傳址」？</a><br><a href="https://pjchender.blogspot.com/2016/03/javascriptby-referenceby-value.html" target="_blank" rel="noopener">談談 JavaScript 中 by reference 和 by value 的重要觀念</a></p>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -96,7 +80,7 @@
   </entry>
   <entry>
     <title>HTML 小知識 - 區塊元素 vs 行內元素</title>
-    <url>/posts/HTML/fd7f7d68/</url>
+    <url>/html/20200827/fd7f7d68/</url>
     <content><![CDATA[<p><img src="https://i.imgur.com/wUurW9q.png" alt></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>使用那麼多次 HTML 元素卻很少去了解它屬於什麼元素，所以來記錄一下我們常見的區塊元素和行內元素</p>
 <p>順便也能了解一些元素之間的小禁忌</p>
@@ -229,74 +213,90 @@
       </tags>
   </entry>
   <entry>
-    <title>JS 趴趴走 - ES6 Fetch 應用</title>
-    <url>/posts/JavaScript/483210d8/</url>
+    <title>JS 趴趴走 - ES6 const &amp; let</title>
+    <url>/javascript/20200801/b5b19c96/</url>
     <content><![CDATA[<p><img src="https://i.imgur.com/n9iFZz1.png" alt></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近參加了六角的js學徒特訓班，剛好需要抓取遠端資料，之前有嘗試過<code>XMLHttpRequest</code>和框架<code>axios</code>，這次來試試看如果使用Fetch是要怎麼抓取資料</p>
-<a id="more"></a>
-
-<h2 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h2><p><code>Fetch</code>和<code>XMLHttpRequest</code>一樣都是用來存取伺服器端的資料，以往使用<code>XMLHttpRequest</code>時會發現步驟很多</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 宣告一個XMLHttpRequest物件</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest(); </span><br><span class="line"><span class="comment">// 定義連線方式</span></span><br><span class="line">xhr.open(<span class="string">'get'</span>, <span class="string">'網址'</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 送出請求</span></span><br><span class="line">xhr.send();</span><br><span class="line"><span class="comment">// 如果成功就執行 </span></span><br><span class="line">xhr.onload=<span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">console</span>.log(xhr.responseText); </span><br><span class="line"><span class="comment">// 失敗就 xhrError()</span></span><br><span class="line">xhr.onerror=<span class="function">(<span class="params">err</span>)=&gt;</span> <span class="built_in">console</span>.log(err);</span><br></pre></td></tr></table></figure>
-
-<p>而Fetch就大大減少這些步驟，使用<code>Promise</code>的方式抓取資料，借用六角學院的api(感謝六角學院提供練習XD)</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fetch(<span class="string">'https://raw.githubusercontent.com/hexschool/hexschoolNewbieJS/master/data.json'</span>)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res.json());</span><br><span class="line">    <span class="keyword">return</span> res.json(); <span class="comment">//透過json()方法獲取資訊</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">err</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-
-<p>我們返回了<code>res.json()</code>獲取資料後，此時的資料得到的是<code>promise</code>對象，而我們所要的值就在<code>PromiseValue</code>裡面</p>
-<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="string">[[PromiseStatus]]</span>: <span class="string">"fulfilled"</span> //實現（fulfilled）：表示操作成功完成。</span><br><span class="line"><span class="string">[[PromiseValue]]</span>: Array(<span class="number">221</span>)</span><br></pre></td></tr></table></figure>
-
-<p>在Promise的文件中，<code>[[PromiseValue]]</code>是個內部變量，外部無法得到，只能在<code>then</code>中獲取。所以需要第二次的<code>then</code>來接收</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> url=<span class="string">'https://raw.githubusercontent.com/hexschool/hexschoolNewbieJS/master/data.json'</span>;</span><br><span class="line">fetch(url)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> res.json(); <span class="comment">//返回的的資料會傳到下一個then</span></span><br><span class="line">&#125;).then(<span class="function">(<span class="params">data</span>)=&gt;</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>最後記得要加上<code>catch</code>(失敗導向)</p>
-<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>使用Fetch過後，真的比以往的XMLHttpRequest或jQuery AJAX來的簡潔，認為跟框架的axios有一點像；這次剛好只碰到GET，以後看有沒有機會學習到其他方法~</p>
-<hr>
-<h3 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h3><p><a href="https://ithelp.ithome.com.tw/articles/10194388" target="_blank" rel="noopener">ES6 Fetch 遠端資料方法</a><br><a href="https://www.itdaan.com/tw/36577774e82c253cffa236a9608d8aa4" target="_blank" rel="noopener">結合promise對原生fetch的兩個then用法理解</a><br><a href="https://www.oxxostudio.tw/articles/201908/js-fetch.html" target="_blank" rel="noopener">JavaScript Fetch API 使用教學</a></p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>ES6</tag>
-        <tag>AJAX</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS 趴趴走 - ES6 關於 const 的宣告</title>
-    <url>/posts/JavaScript/eccdaf7f/</url>
-    <content><![CDATA[<p><img src="https://i.imgur.com/n9iFZz1.png" alt></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天的文章啟發於六角學院的Js學徒特訓班第三十七關，除了<code>var</code>宣告變數之外，我們也可以使用ES6的<code>let</code>和<code>const</code></p>
-<a id="more"></a>
-
-
-<h2 id="let和const宣告"><a href="#let和const宣告" class="headerlink" title="let和const宣告"></a>let和const宣告</h2><p>首先了解let和const都屬於用來宣告的，他們兩者最大差異是</p>
-<ul>
-<li>let: 用來宣告變數，可以被重新指定值</li>
-<li>const: 用來宣告常數(變數)，不能重新指定值</li>
-</ul>
-<p>所以當我們宣告的時候，就會寫成這樣</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a=<span class="string">'曉華'</span>;</span><br><span class="line"><span class="keyword">const</span> b=<span class="string">'小鎮'</span>;</span><br><span class="line">a=<span class="string">'小明'</span>;</span><br><span class="line">b=<span class="string">'aaa'</span>;<span class="comment">//Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
-
-<p>使用<code>const</code>宣告就不能改值了，會發生錯誤</p>
-<h2 id="const宣告物件和陣列"><a href="#const宣告物件和陣列" class="headerlink" title="const宣告物件和陣列"></a>const宣告物件和陣列</h2><p>當你要宣告會改變值的時，下意識會認為那就使用let，這次我們使用const宣告物件和陣列試試看</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr=[];</span><br><span class="line">arr.push(<span class="number">123</span>);</span><br></pre></td></tr></table></figure>
-
-<p>會發現竟然沒出錯，這是因為JS中的陣列和物件都是屬於 Pass by reference，也就是我們所說的傳址，以上述範例來說它只是把數值放在同一個記憶體的位置，沒有指向其他地方，自然就不會產生錯誤了</p>
-<p>這點物件也是同樣的</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj=&#123;</span><br><span class="line">    a:<span class="string">'小名'</span>,</span><br><span class="line">    b:<span class="string">'曉華'</span>,</span><br><span class="line">    c:<span class="string">'小鎮'</span></span><br><span class="line">&#125;;</span><br><span class="line">obj.a=<span class="string">'名小小'</span></span><br><span class="line"><span class="built_in">console</span>.log(obj) <span class="comment">//&#123;a: "名小小", b: "曉華", c: "小鎮"&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>但要記住，一旦跟改位置，就不能使用<code>const</code>方式宣告了</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj2=&#123;</span><br><span class="line">    a:<span class="string">'小名'</span>,</span><br><span class="line">    b:<span class="string">'曉華'</span>,</span><br><span class="line">    c:<span class="string">'小鎮'</span></span><br><span class="line">&#125;;</span><br><span class="line">obj2=&#123;</span><br><span class="line"> a:<span class="string">'名小小'</span> </span><br><span class="line">&#125;<span class="comment">//Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
-
-<p>最後放個範例</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'小名'</span>;</span><br><span class="line"><span class="keyword">const</span> age = <span class="number">16</span>;</span><br><span class="line"><span class="keyword">let</span> city = <span class="string">'台北市'</span>;</span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name: <span class="string">'曉華'</span>,</span><br><span class="line">  height: <span class="number">155</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> myWallet = &#123;</span><br><span class="line">  money: <span class="number">1000</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">city = <span class="string">'台中市'</span>;</span><br><span class="line">person.height = <span class="number">160</span>;</span><br><span class="line">myWallet = &#123;&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>可以看出來，用<code>const</code>宣告的值為不可更改，若使用物件更改為同一個記憶體位置可以使用<code>const</code>，若重新指向新的記憶體則依然使用<code>let</code></p>
-<hr>
-<h3 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h3><blockquote>
-<p>對於 Pass by reference 可以參考以下文章</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>剛開始接觸 JavaScript 時，最先使用的宣告方式是 <code>var</code>，慢慢的開始學會了 ES6 的 <code>let</code> 和 <code>const</code> ，所以就來筆記一下他們的不同</p>
+<blockquote>
+<p>文章啟發於六角學院的 JS 學徒特訓班第三十八關</p>
 </blockquote>
-<p><a href="https://ithelp.ithome.com.tw/articles/10191057" target="_blank" rel="noopener">重新認識 JavaScript: Day 05 JavaScript 是「傳值」或「傳址」？</a><br><a href="https://pjchender.blogspot.com/2016/03/javascriptby-referenceby-value.html" target="_blank" rel="noopener">談談 JavaScript 中 by reference 和 by value 的重要觀念</a></p>
+<a id="more"></a>
+
+<h2 id="const-vs-let-vs-var"><a href="#const-vs-let-vs-var" class="headerlink" title="const vs let vs var"></a>const vs let vs var</h2><p><code>const</code> 、 <code>let</code> 以及 <code>var</code> 都是用來宣告變數，他們都是宣告變數，為什麼明明有了 <code>var</code> 還要增加 <code>const</code> 和 <code>let</code> 呢?<br>其實就是為了修正 <code>var</code> 的一些缺點</p>
+<h3 id="作用域-汙染全域"><a href="#作用域-汙染全域" class="headerlink" title="作用域(汙染全域)"></a>作用域(汙染全域)</h3><p><code>var</code> 屬於作用域屬於<strong>函式作用域</strong>，意思就是<code>var</code> 變數的範圍在 <code>function</code> </p>
+<blockquote>
+<p>作用範圍(scope)又稱作用域，指的是變數或常數的定義與語句可見(被存取得到)的範圍</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a);   <span class="comment">//ReferenceError: a is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>從上面例子來看，因為屬於函式作用域(function scope)，我們不能從 <code>function</code> 內拿到 <code>a</code> 值 ，也就是說只能在函式內才能使用</p>
+<p>而 <code>const</code> 和 <code>let</code> 屬於<strong>區塊作用域</strong>，區塊如 <code>if</code>、<code>for</code>、<code>switch</code>、<code>while</code> 等等有使用區塊(<code>{ }</code>)語句</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">let</span> a = <span class="number">100</span>;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(a);   <span class="comment">//ReferenceError: a is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> b = <span class="string">'我不能來出來'</span>;</span><br><span class="line">  <span class="keyword">var</span> c = <span class="string">'我可以拿出來'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(c);   <span class="comment">//我可以拿出來</span></span><br><span class="line"><span class="built_in">console</span>.log(b);   <span class="comment">//ReferenceError: b is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>以 <code>funtion</code> 一樣也是會出現錯誤，但我們使用 <code>if</code> 發現用 <code>var</code> 宣告的 <code>c</code> 是可以取到值的，而 <code>b</code> 則不行</p>
+<p>再來我們使用「開發人員工具」輸入 <code>window</code> 去搜尋，會發現 <code>c</code> 竟然變成全域變數了，由此得知使用 <code>const</code> 和 <code>let</code> 可以確保不會污染到全域</p>
+<h3 id="重複宣告"><a href="#重複宣告" class="headerlink" title="重複宣告"></a>重複宣告</h3><p>我們來看看以下問題答案是什麼</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//範例一</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">a = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">234</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//範例二</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">1</span>;</span><br><span class="line">b = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> c = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> c = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//範例三</span></span><br><span class="line"><span class="keyword">const</span> d = <span class="number">3</span>;</span><br><span class="line">d = <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>範例一 : <code>var</code> 是允許重複宣告的也可以重新賦值，而且即使在同一個作用域，同樣名稱的變數也允許重複宣告，所以 <code>a</code> 答案就是 234 </li>
+<li>範例二 : <code>let</code> 與 <code>var</code> 的不同點在於不能重複宣告，所以 <code>b</code> 答案是 3 ，而 <code>c</code> 的答案則是 <code>Identifier &#39;c&#39; has already been declared</code></li>
+<li>範例三 : <code>const</code> 則是不能重複宣告也不能重新賦值，只能用來宣告常數(在 ES6 中的定義是constant variable 固定的變數)，所以 <code>d</code> 的答案是 <code>Assignment to constant variable.</code></li>
+</ul>
+<h4 id="const-的特性"><a href="#const-的特性" class="headerlink" title="const 的特性"></a>const 的特性</h4><p><code>const</code>除了以上特性外，對於物件和陣列來說若只是傳參考也可以使用，另外還有一點就是必須一定要有值，對於<code>var</code> 和 <code>let</code> 宣告變數可以不賦予值，但 <code>const</code> 不賦值就會出錯</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> a;   <span class="comment">//Missing initializer in const declaration</span></span><br></pre></td></tr></table></figure>
+
+<p><small>其實可以這樣想你都要宣告一個變數了怎麼可能還不賦予值對吧XDD，而 const 又不能更動值，所以邏輯上 const 就一定要有值囉</small></p>
+<blockquote>
+<p>關於<code>const</code>使用在物件或者陣列上，參考這篇 <a href="https://yanennnnn.github.io/20200728/ckdbcf3nd0000hc7kbnvc1juz/#more">文章</a></p>
+</blockquote>
+<h3 id="Hoisting-變量提升"><a href="#Hoisting-變量提升" class="headerlink" title="Hoisting 變量提升"></a>Hoisting 變量提升</h3><p>使用 <code>var</code> 宣告變數時，會有一種特性</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<p>答案竟然不是 <code>a is not defined</code> 而是 <code>undefined</code>，這是因為<strong>Hoisting</strong>的關係</p>
+<p><code>var</code>有提升，那 <code>const</code> 和 <code>let</code>呢?</p>
+<pre><code class="javascript"><span class="built_in">console</span>.log(b);  <span class="comment">//ReferenceError: b is not defined</span>
+<span class="keyword">let</span> b = <span class="number">123</span>;</code></pre>
+<p>是 <code>b is not defined</code>耶，這樣說明是不是代表沒有提升囉? 哦不不不，哦不不不，我看你是 too young too simple(誤</p>
+<p>其實是 <code>const</code> 和 <code>let</code> 也是存在變量提升的，但因為 <strong>暫時死區（Temporal Dead Zone，TDZ)</strong> 的關係，才會感覺沒有提升</p>
+<blockquote>
+<p><strong>TDZ</strong> : 如宣告變數前存取該變數會產生 <code>ReferenceError</code> 錯誤，這就是稱為 暫時死區 (Temporal Dead Zone)</p>
+</blockquote>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>最後簡單整理一個表格提供參考，也可以知道何時該用什麼方法宣告</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">var</th>
+<th align="center">let</th>
+<th align="center">const</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">作用域(範圍)</td>
+<td align="center">函式</td>
+<td align="center">區塊</td>
+<td align="center">區塊</td>
+</tr>
+<tr>
+<td align="center">重複宣告</td>
+<td align="center">可</td>
+<td align="center">不可</td>
+<td align="center">不可</td>
+</tr>
+<tr>
+<td align="center">重新賦值</td>
+<td align="center">可</td>
+<td align="center">可</td>
+<td align="center">不可</td>
+</tr>
+<tr>
+<td align="center">變量提升</td>
+<td align="center">有</td>
+<td align="center">有</td>
+<td align="center">有</td>
+</tr>
+</tbody></table>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -308,7 +308,7 @@
   </entry>
   <entry>
     <title>六角 - JS 實戰班心得 </title>
-    <url>/posts/%E5%85%AD%E8%A7%92%E5%AD%B8%E9%99%A2/c63f9c74/</url>
+    <url>/learnshare/20200825/c63f9c74/</url>
     <content><![CDATA[<p><img src="https://i.imgur.com/ley4HZ3.png" alt></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當時剛把 Vue 的最終作業完成了，但是那時候覺得自己對 Vue 還不夠了解，這時候剛好六角學院了 JS 直播班，想著那不如就來參加，也可以增加自己的熟悉度</p>
 <a id="more"></a>
@@ -321,10 +321,11 @@
 <p>因為有建 Slack 可以看到大家都在努力，說不定會覺得自己不能那麼廢而上進XD，另外也把問題丟到上面，助教回覆的都蠻快的，但我覺得六角學院不管哪裡回答問題都蠻快的XD</p>
 ]]></content>
       <categories>
-        <category>六角學院</category>
+        <category>心得分享</category>
       </categories>
       <tags>
         <tag>活動心得</tag>
+        <tag>六角學院</tag>
       </tags>
   </entry>
 </search>

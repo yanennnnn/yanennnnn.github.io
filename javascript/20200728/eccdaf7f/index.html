@@ -118,7 +118,7 @@
 
 
 
-  <meta name="keywords" content="六角學院,活動心得感想,JavaScript實戰直播班">
+  <meta name="keywords" content="JavaScript,ES6,const和let的應用">
 
 
 
@@ -131,20 +131,20 @@
 
 
 
-<meta name="description" content="前言當時剛把 Vue 的最終作業完成了，但是那時候覺得自己對 Vue 還不夠了解，這時候剛好六角學院了 JS 直播班，想著那不如就來參加，也可以增加自己的熟悉度">
-<meta name="keywords" content="六角學院,活動心得感想,JavaScript實戰直播班">
+<meta name="description" content="前言今天的文章啟發於六角學院的Js學徒特訓班第三十七關，除了var宣告變數之外，我們也可以使用ES6的let和const">
+<meta name="keywords" content="JavaScript,ES6,const和let的應用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="六角 - JS 實戰班心得 ">
-<meta property="og:url" content="https://yanennnnn.github.io/posts/六角學院/c63f9c74/index.html">
+<meta property="og:title" content="JS 趴趴走 - ES6 關於 const 的宣告">
+<meta property="og:url" content="https://yanennnnn.github.io/javascript/20200728/eccdaf7f/index.html">
 <meta property="og:site_name" content="Code。YuKun">
-<meta property="og:description" content="前言當時剛把 Vue 的最終作業完成了，但是那時候覺得自己對 Vue 還不夠了解，這時候剛好六角學院了 JS 直播班，想著那不如就來參加，也可以增加自己的熟悉度">
+<meta property="og:description" content="前言今天的文章啟發於六角學院的Js學徒特訓班第三十七關，除了var宣告變數之外，我們也可以使用ES6的let和const">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="https://i.imgur.com/ley4HZ3.png">
-<meta property="og:updated_time" content="2020-08-28T03:02:07.294Z">
+<meta property="og:image" content="https://i.imgur.com/n9iFZz1.png">
+<meta property="og:updated_time" content="2020-08-28T03:02:07.680Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="六角 - JS 實戰班心得 ">
-<meta name="twitter:description" content="前言當時剛把 Vue 的最終作業完成了，但是那時候覺得自己對 Vue 還不夠了解，這時候剛好六角學院了 JS 直播班，想著那不如就來參加，也可以增加自己的熟悉度">
-<meta name="twitter:image" content="https://i.imgur.com/ley4HZ3.png">
+<meta name="twitter:title" content="JS 趴趴走 - ES6 關於 const 的宣告">
+<meta name="twitter:description" content="前言今天的文章啟發於六角學院的Js學徒特訓班第三十七關，除了var宣告變數之外，我們也可以使用ES6的let和const">
+<meta name="twitter:image" content="https://i.imgur.com/n9iFZz1.png">
 
 
 
@@ -174,13 +174,13 @@
 
 
 
-  <link rel="canonical" href="https://yanennnnn.github.io/posts/六角學院/c63f9c74/">
+  <link rel="canonical" href="https://yanennnnn.github.io/javascript/20200728/eccdaf7f/">
 
 
 
 
 
-  <title>六角 - JS 實戰班心得  | Code。YuKun</title>
+  <title>JS 趴趴走 - ES6 關於 const 的宣告 | Code。YuKun</title>
   
 
 
@@ -362,7 +362,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yanennnnn.github.io/posts/六角學院/c63f9c74/">
+    <link itemprop="mainEntityOfPage" href="https://yanennnnn.github.io/javascript/20200728/eccdaf7f/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yanennnnn">
@@ -379,7 +379,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">六角 - JS 實戰班心得 </h2>
+          <h2 class="post-title" itemprop="name headline">JS 趴趴走 - ES6 關於 const 的宣告</h2>
         
 
         <div class="post-meta">
@@ -391,8 +391,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-08-25T14:36:07+08:00">
-                2020-08-25
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-07-28T14:33:10+08:00">
+                2020-07-28
               </time>
             
 
@@ -414,8 +414,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/六角學院/" itemprop="url" rel="index">
-                    <span itemprop="name">六角學院</span>
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -451,16 +451,39 @@
       
 
       
-        <p><img src="https://i.imgur.com/ley4HZ3.png" alt></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當時剛把 Vue 的最終作業完成了，但是那時候覺得自己對 Vue 還不夠了解，這時候剛好六角學院了 JS 直播班，想著那不如就來參加，也可以增加自己的熟悉度</p>
+        <p><img src="https://i.imgur.com/n9iFZz1.png" alt></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天的文章啟發於六角學院的Js學徒特訓班第三十七關，除了<code>var</code>宣告變數之外，我們也可以使用ES6的<code>let</code>和<code>const</code></p>
 <a id="more"></a>
 
-<h2 id="第一～第八週的學習過程"><a href="#第一～第八週的學習過程" class="headerlink" title="第一～第八週的學習過程"></a>第一～第八週的學習過程</h2><h3 id="開課時的小任務"><a href="#開課時的小任務" class="headerlink" title="開課時的小任務"></a>開課時的小任務</h3><p>開課前老師有給一些 JS 觀念影片給學員，是 JS 核心觀念一些內容，因為當初有買這個課程，所以當時就想不如就當作複習，順便做了一些筆記或者修改之前的筆記，最後這些筆記讓我在實作的時候，能快速找到自己要的東西， 所以說筆記挺重要的XD</p>
-<p>還有每日任務，其實自己做的還蠻開心的(? 看自己每天都有執行，不僅能知道哪裡還是不懂加上每天都有花一點時間做每日任務也不會讓自己跟程式脫節太久，尤其是 Vue 的 <code>emit</code> 和 <code>props</code> 上完課後，搭配每日任務又更加深我的印象，比以前自己看影片時還來的知道如何使用他們。</p>
-<h3 id="直播課期間"><a href="#直播課期間" class="headerlink" title="直播課期間"></a>直播課期間</h3><p>到了開課，因為是直播的關係，儘管之後有影片，但覺得在直播的時候會比自己看影片會更專心；之前已經有上過 Vue 的課程，所以直播時我都是以複習來看待，發現之前不懂的地方在這次直播都蠻清楚的，有些不懂得比之前看的還明白，就像我剛剛所說的 <code>emit</code> 和 <code>props</code>。</p>
-<p>期間每週上完都會有主線任務，以前自己做最終作業的時候都要一直看別人的，到現在慢慢的可以自己摸出一些來，尤其是週六的加碼作業講解還有助教的講解，讓我懂得如何應用，了解這段程式為什麼要這樣寫</p>
-<h2 id="結論分享"><a href="#結論分享" class="headerlink" title="結論分享"></a>結論分享</h2><p>我覺得直播班其實可以入手，雖然比自己購買課程會比較貴，但因為是直播，會有時間的壓力，可以讓你的懶癌減少一點，而且若你很急的要趕快有個作品的話，很推薦參加。如果說金錢允許的話我建議可以一起購買課程，我是兩個地方都有，畢竟當下說的是這種方式解讀，但或許影音課程又會是另外一種解讀方式，加上剛剛所說有時間的關係，所以可能你還沒吸收好又要進入下一個階段了，所以這時候有買課程的話就可以在一次複習，加深印象</p>
-<p>因為有建 Slack 可以看到大家都在努力，說不定會覺得自己不能那麼廢而上進XD，另外也把問題丟到上面，助教回覆的都蠻快的，但我覺得六角學院不管哪裡回答問題都蠻快的XD</p>
+
+<h2 id="let和const宣告"><a href="#let和const宣告" class="headerlink" title="let和const宣告"></a>let和const宣告</h2><p>首先了解let和const都屬於用來宣告的，他們兩者最大差異是</p>
+<ul>
+<li>let: 用來宣告變數，可以被重新指定值</li>
+<li>const: 用來宣告常數(變數)，不能重新指定值</li>
+</ul>
+<p>所以當我們宣告的時候，就會寫成這樣</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=<span class="string">'曉華'</span>;</span><br><span class="line"><span class="keyword">const</span> b=<span class="string">'小鎮'</span>;</span><br><span class="line">a=<span class="string">'小明'</span>;</span><br><span class="line">b=<span class="string">'aaa'</span>;<span class="comment">//Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
+
+<p>使用<code>const</code>宣告就不能改值了，會發生錯誤</p>
+<h2 id="const宣告物件和陣列"><a href="#const宣告物件和陣列" class="headerlink" title="const宣告物件和陣列"></a>const宣告物件和陣列</h2><p>當你要宣告會改變值的時，下意識會認為那就使用let，這次我們使用const宣告物件和陣列試試看</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr=[];</span><br><span class="line">arr.push(<span class="number">123</span>);</span><br></pre></td></tr></table></figure>
+
+<p>會發現竟然沒出錯，這是因為JS中的陣列和物件都是屬於 Pass by reference，也就是我們所說的傳址，以上述範例來說它只是把數值放在同一個記憶體的位置，沒有指向其他地方，自然就不會產生錯誤了</p>
+<p>這點物件也是同樣的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj=&#123;</span><br><span class="line">    a:<span class="string">'小名'</span>,</span><br><span class="line">    b:<span class="string">'曉華'</span>,</span><br><span class="line">    c:<span class="string">'小鎮'</span></span><br><span class="line">&#125;;</span><br><span class="line">obj.a=<span class="string">'名小小'</span></span><br><span class="line"><span class="built_in">console</span>.log(obj) <span class="comment">//&#123;a: "名小小", b: "曉華", c: "小鎮"&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>但要記住，一旦跟改位置，就不能使用<code>const</code>方式宣告了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj2=&#123;</span><br><span class="line">    a:<span class="string">'小名'</span>,</span><br><span class="line">    b:<span class="string">'曉華'</span>,</span><br><span class="line">    c:<span class="string">'小鎮'</span></span><br><span class="line">&#125;;</span><br><span class="line">obj2=&#123;</span><br><span class="line"> a:<span class="string">'名小小'</span> </span><br><span class="line">&#125;<span class="comment">//Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
+
+<p>最後放個範例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'小名'</span>;</span><br><span class="line"><span class="keyword">const</span> age = <span class="number">16</span>;</span><br><span class="line"><span class="keyword">let</span> city = <span class="string">'台北市'</span>;</span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name: <span class="string">'曉華'</span>,</span><br><span class="line">  height: <span class="number">155</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> myWallet = &#123;</span><br><span class="line">  money: <span class="number">1000</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">city = <span class="string">'台中市'</span>;</span><br><span class="line">person.height = <span class="number">160</span>;</span><br><span class="line">myWallet = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>可以看出來，用<code>const</code>宣告的值為不可更改，若使用物件更改為同一個記憶體位置可以使用<code>const</code>，若重新指向新的記憶體則依然使用<code>let</code></p>
+<hr>
+<h3 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h3><blockquote>
+<p>對於 Pass by reference 可以參考以下文章</p>
+</blockquote>
+<p><a href="https://ithelp.ithome.com.tw/articles/10191057" target="_blank" rel="noopener">重新認識 JavaScript: Day 05 JavaScript 是「傳值」或「傳址」？</a><br><a href="https://pjchender.blogspot.com/2016/03/javascriptby-referenceby-value.html" target="_blank" rel="noopener">談談 JavaScript 中 by reference 和 by value 的重要觀念</a></p>
 
       
     </div>
@@ -478,7 +501,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/活動心得/" rel="tag"><i class="fa fa-tag"></i> 活動心得</a>
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+            <a href="/tags/ES6/" rel="tag"><i class="fa fa-tag"></i> ES6</a>
           
         </div>
       
@@ -491,8 +516,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/JavaScript/b5b19c96/" rel="next" title="JS 趴趴走 - ES6 const & let">
-                <i class="fa fa-chevron-left"></i> JS 趴趴走 - ES6 const & let
+              <a href="/javascript/20200727/483210d8/" rel="next" title="JS 趴趴走 - ES6 Fetch 應用">
+                <i class="fa fa-chevron-left"></i> JS 趴趴走 - ES6 Fetch 應用
               </a>
             
           </div>
@@ -501,8 +526,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/HTML/fd7f7d68/" rel="prev" title="HTML 小知識 - 區塊元素 vs 行內元素">
-                HTML 小知識 - 區塊元素 vs 行內元素 <i class="fa fa-chevron-right"></i>
+              <a href="/javascript/20200801/b5b19c96/" rel="prev" title="JS 趴趴走 - ES6 const & let">
+                JS 趴趴走 - ES6 const & let <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -602,7 +627,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -642,7 +667,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一～第八週的學習過程"><span class="nav-number">2.</span> <span class="nav-text">第一～第八週的學習過程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#開課時的小任務"><span class="nav-number">2.1.</span> <span class="nav-text">開課時的小任務</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直播課期間"><span class="nav-number">2.2.</span> <span class="nav-text">直播課期間</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#結論分享"><span class="nav-number">3.</span> <span class="nav-text">結論分享</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let和const宣告"><span class="nav-number">2.</span> <span class="nav-text">let和const宣告</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const宣告物件和陣列"><span class="nav-number">3.</span> <span class="nav-text">const宣告物件和陣列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#參考文獻"><span class="nav-number">3.1.</span> <span class="nav-text">參考文獻</span></a></li></ol></li></ol></div>
             
 
           </div>
