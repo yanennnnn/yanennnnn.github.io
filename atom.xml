@@ -18,8 +18,8 @@
   
   <entry>
     <title>HTML 小知識 - 區塊元素 vs 行內元素</title>
-    <link href="https://yanennnnn.github.io/20200827/undefined"/>
-    <id>https://yanennnnn.github.io/20200827/undefined</id>
+    <link href="https://yanennnnn.github.io/20200827/undefined/"/>
+    <id>https://yanennnnn.github.io/20200827/undefined/</id>
     <published>2020-08-27T07:35:35.000Z</published>
     <updated>2020-08-27T09:50:16.451Z</updated>
     
@@ -42,8 +42,8 @@
   
   <entry>
     <title>六角 - JS 實戰班心得 </title>
-    <link href="https://yanennnnn.github.io/20200825/undefined"/>
-    <id>https://yanennnnn.github.io/20200825/undefined</id>
+    <link href="https://yanennnnn.github.io/20200825/undefined/"/>
+    <id>https://yanennnnn.github.io/20200825/undefined/</id>
     <published>2020-08-25T06:36:07.000Z</published>
     <updated>2020-08-27T05:46:29.325Z</updated>
     
@@ -65,8 +65,8 @@
   
   <entry>
     <title>JS 趴趴走 - ES6 const &amp; let</title>
-    <link href="https://yanennnnn.github.io/20200801/undefined"/>
-    <id>https://yanennnnn.github.io/20200801/undefined</id>
+    <link href="https://yanennnnn.github.io/20200801/undefined/"/>
+    <id>https://yanennnnn.github.io/20200801/undefined/</id>
     <published>2020-08-01T07:39:26.000Z</published>
     <updated>2020-08-27T07:58:41.202Z</updated>
     
@@ -93,8 +93,8 @@
   
   <entry>
     <title>JS 趴趴走 - ES6 關於 const 的宣告</title>
-    <link href="https://yanennnnn.github.io/20200728/undefined"/>
-    <id>https://yanennnnn.github.io/20200728/undefined</id>
+    <link href="https://yanennnnn.github.io/20200728/undefined/"/>
+    <id>https://yanennnnn.github.io/20200728/undefined/</id>
     <published>2020-07-28T06:33:10.000Z</published>
     <updated>2020-08-27T07:58:40.616Z</updated>
     
@@ -118,8 +118,8 @@
   
   <entry>
     <title>JS 趴趴走 - ES6 Fetch 應用</title>
-    <link href="https://yanennnnn.github.io/20200727/undefined"/>
-    <id>https://yanennnnn.github.io/20200727/undefined</id>
+    <link href="https://yanennnnn.github.io/20200727/undefined/"/>
+    <id>https://yanennnnn.github.io/20200727/undefined/</id>
     <published>2020-07-27T09:47:04.000Z</published>
     <updated>2020-08-27T07:58:39.673Z</updated>
     
@@ -137,9 +137,9 @@
     
       <category term="JavaScript" scheme="https://yanennnnn.github.io/tags/JavaScript/"/>
     
-      <category term="ES6" scheme="https://yanennnnn.github.io/tags/ES6/"/>
-    
       <category term="AJAX" scheme="https://yanennnnn.github.io/tags/AJAX/"/>
+    
+      <category term="ES6" scheme="https://yanennnnn.github.io/tags/ES6/"/>
     
   </entry>
   

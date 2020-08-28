@@ -118,7 +118,7 @@
 
 
 
-  <meta name="keywords" content="HTML,區塊元素,行內元素,HTML 元素">
+  <meta name="keywords" content="JavaScript,ES6,const 和 let 的應用">
 
 
 
@@ -131,20 +131,20 @@
 
 
 
-<meta name="description" content="前言使用那麼多次 HTML 元素卻很少去了解它屬於什麼元素，所以來記錄一下我們常見的區塊元素和行內元素 順便也能了解一些元素之間的小禁忌">
-<meta name="keywords" content="HTML,區塊元素,行內元素,HTML 元素">
+<meta name="description" content="前言剛開始接觸 JavaScript 時，最先使用的宣告方式是 var，慢慢的開始學會了 ES6 的 let 和 const ，所以就來筆記一下他們的不同  文章啟發於六角學院的 JS 學徒特訓班第三十八關">
+<meta name="keywords" content="JavaScript,ES6,const 和 let 的應用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML 小知識 - 區塊元素 vs 行內元素">
-<meta property="og:url" content="https://yanennnnn.github.io/20200827/undefined">
+<meta property="og:title" content="JS 趴趴走 - ES6 const &amp; let">
+<meta property="og:url" content="https://yanennnnn.github.io/20200801/undefined/index.html">
 <meta property="og:site_name" content="Code。YuKun">
-<meta property="og:description" content="前言使用那麼多次 HTML 元素卻很少去了解它屬於什麼元素，所以來記錄一下我們常見的區塊元素和行內元素 順便也能了解一些元素之間的小禁忌">
+<meta property="og:description" content="前言剛開始接觸 JavaScript 時，最先使用的宣告方式是 var，慢慢的開始學會了 ES6 的 let 和 const ，所以就來筆記一下他們的不同  文章啟發於六角學院的 JS 學徒特訓班第三十八關">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="https://i.imgur.com/wUurW9q.png">
-<meta property="og:updated_time" content="2020-08-27T09:50:16.451Z">
+<meta property="og:image" content="https://i.imgur.com/n9iFZz1.png">
+<meta property="og:updated_time" content="2020-08-27T07:58:41.202Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML 小知識 - 區塊元素 vs 行內元素">
-<meta name="twitter:description" content="前言使用那麼多次 HTML 元素卻很少去了解它屬於什麼元素，所以來記錄一下我們常見的區塊元素和行內元素 順便也能了解一些元素之間的小禁忌">
-<meta name="twitter:image" content="https://i.imgur.com/wUurW9q.png">
+<meta name="twitter:title" content="JS 趴趴走 - ES6 const &amp; let">
+<meta name="twitter:description" content="前言剛開始接觸 JavaScript 時，最先使用的宣告方式是 var，慢慢的開始學會了 ES6 的 let 和 const ，所以就來筆記一下他們的不同  文章啟發於六角學院的 JS 學徒特訓班第三十八關">
+<meta name="twitter:image" content="https://i.imgur.com/n9iFZz1.png">
 
 
 
@@ -174,13 +174,13 @@
 
 
 
-  <link rel="canonical" href="https://yanennnnn.github.io/20200827/undefined">
+  <link rel="canonical" href="https://yanennnnn.github.io/20200801/undefined/">
 
 
 
 
 
-  <title>HTML 小知識 - 區塊元素 vs 行內元素 | Code。YuKun</title>
+  <title>JS 趴趴走 - ES6 const & let | Code。YuKun</title>
   
 
 
@@ -362,7 +362,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yanennnnn.github.io/20200827/undefined">
+    <link itemprop="mainEntityOfPage" href="https://yanennnnn.github.io/20200801/undefined/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yanennnnn">
@@ -379,7 +379,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">HTML 小知識 - 區塊元素 vs 行內元素</h2>
+          <h2 class="post-title" itemprop="name headline">JS 趴趴走 - ES6 const & let</h2>
         
 
         <div class="post-meta">
@@ -391,8 +391,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-08-27T15:35:35+08:00">
-                2020-08-27
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-08-01T15:39:26+08:00">
+                2020-08-01
               </time>
             
 
@@ -414,8 +414,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML</span>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -451,129 +451,88 @@
       
 
       
-        <p><img src="https://i.imgur.com/wUurW9q.png" alt></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>使用那麼多次 HTML 元素卻很少去了解它屬於什麼元素，所以來記錄一下我們常見的區塊元素和行內元素</p>
-<p>順便也能了解一些元素之間的小禁忌</p>
+        <p><img src="https://i.imgur.com/n9iFZz1.png" alt></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>剛開始接觸 JavaScript 時，最先使用的宣告方式是 <code>var</code>，慢慢的開始學會了 ES6 的 <code>let</code> 和 <code>const</code> ，所以就來筆記一下他們的不同</p>
+<blockquote>
+<p>文章啟發於六角學院的 JS 學徒特訓班第三十八關</p>
+</blockquote>
 <a id="more"></a>
 
-<h2 id="區塊元素-block"><a href="#區塊元素-block" class="headerlink" title="區塊元素(block)"></a>區塊元素(block)</h2><p>區塊元素（或稱區塊層級元素），可以設置 <code>width</code>、<code>height</code>，在一般默認下的區塊元素，寬度會跟隨父層寬度，故而不允許其他元素佔據其相同水平空間，對應的 <code>display</code> 為 <code>block</code>；區塊元素的矩形結構稱之為盒模型( box model )，由 <code>content</code>、<code>padding</code>、<code>border</code>、<code>margin</code>所組成</p>
-<h3 id="區塊元素包含"><a href="#區塊元素包含" class="headerlink" title="區塊元素包含"></a>區塊元素包含</h3><ul>
-<li>文字<ul>
-<li>p - 段落</li>
-<li>h1, h2, h3, h4, h5, h6 - 標題 <br></li>
-</ul>
-</li>
-<li>列表 <ul>
-<li>dl - 定義列表-清單</li>
-<li>dt - 定義列表-項目</li>
-<li>dd - 定義列表-描述</li>
-<li>ol - 有排序之編號清單</li>
-<li>ul - 未排序之項目符號清單</li>
-<li>li - 清單中之列表項目<br></li>
-</ul>
-</li>
-<li>其他區塊元素 <ul>
-<li>address - 地址</li>
-<li>blockquote - 塊引用</li>
-<li>div - 區塊</li>
-<li>menu - 菜單列表</li>
-<li>main - 主體內容</li>
-<li>npscript - script 的替代內容（對于不支持 script 的瀏覽器顯示此內容）</li>
-<li>pre - 預先格式化文字</li>
-<li>figure - 有標題的獨立內容，常使用於插圖、圖表或程式片段等，標題是放在其內的 <code>figcaption</code> 元素裡。</li>
-<li>header - 文章標題內容</li>
-<li>nav - 導覽</li>
-<li>aside - 側邊欄</li>
-<li>article - 文章內容</li>
-<li>section - 段落</li>
-<li>footer - 頁尾</li>
-<li>form - 表單</li>
-<li>fieldset - 表單群組</li>
-<li>canvas - 定義圖形</li>
-<li>hgroup - 群組文章標題</li>
-<li>table - 表格</li>
-<li>tfoot - 表格腳尾</li>
-<li>video -嵌入媒體播放器</li>
-<li>audio -嵌入音頻播放器<br></li>
-</ul>
-</li>
-<li>空元素<ul>
-<li>hr - 水平分隔線</li>
-</ul>
-</li>
-</ul>
+<h2 id="const-vs-let-vs-var"><a href="#const-vs-let-vs-var" class="headerlink" title="const vs let vs var"></a>const vs let vs var</h2><p><code>const</code> 、 <code>let</code> 以及 <code>var</code> 都是用來宣告變數，他們都是宣告變數，為什麼明明有了 <code>var</code> 還要增加 <code>const</code> 和 <code>let</code> 呢?<br>其實就是為了修正 <code>var</code> 的一些缺點</p>
+<h3 id="作用域-汙染全域"><a href="#作用域-汙染全域" class="headerlink" title="作用域(汙染全域)"></a>作用域(汙染全域)</h3><p><code>var</code> 屬於作用域屬於<strong>函式作用域</strong>，意思就是<code>var</code> 變數的範圍在 <code>function</code> </p>
 <blockquote>
-<p>只有開始標籤而沒有結束標籤的就稱為空元素</p>
+<p>作用範圍(scope)又稱作用域，指的是變數或常數的定義與語句可見(被存取得到)的範圍</p>
 </blockquote>
-<h2 id="行內元素-inline"><a href="#行內元素-inline" class="headerlink" title="行內元素(inline)"></a>行內元素(inline)</h2><p>又稱內聯元素，和其他元素都在一行上，相臨的行内元素会排列在同一行；無法設置 <code>width</code> 、 <code>height</code> ，只能靠內容撐起來，上下的 <code>padding</code> 和 <code>margin</code> 設置會無效，但左右的有效，對應的 <code>display</code> 為 <code>inline</code></p>
-<blockquote>
-<p>上下的 <code>padding</code>、<code>margin</code> 為 <code>padding-top</code> ,<code>padding-bottom</code>, <code>margin-top</code>, <code>margin-bottom</code></p>
-</blockquote>
-<h3 id="行內元素包含"><a href="#行內元素包含" class="headerlink" title="行內元素包含"></a>行內元素包含</h3><ul>
-<li>a - 連結<br></li>
-<li>短語元素<ul>
-<li>abbr - 縮寫標記</li>
-<li>acronym -首字母縮寫</li>
-<li>b - 文字加粗</li>
-<li>bdo - 覆蓋當前文字方向</li>
-<li>cite - 引用文字</li>
-<li>dfn - 定義術語/專業行話</li>
-<li>em - 強調文字(斜體)</li>
-<li>i - 斜體</li>
-<li>strong - 加重文字</li>
-<li>q - 短引用</li>
-<li>label - input 文字標籤</li>
-<li>samp - 標示電腦程序輸出</li>
-<li>small - 字體變小</li>
-<li>span - 常用行內元素，定義文字內區塊</li>
-<li>sub - 下標</li>
-<li>sup - 上標<br></li>
-</ul>
-</li>
-<li>電腦術語元素<ul>
-<li>code - 程式碼的片段</li>
-<li>kbd - 定義鍵盤文字</li>
-<li>var - 定義變量<br></li>
-</ul>
-</li>
-<li>其他元素<ul>
-<li>output - 表單輸出</li>
-<li>select - 項目選單</li>
-<li>textarea - 多行文本輸入框<br></li>
-</ul>
-</li>
-<li>空元素<ul>
-<li>br - 換行</li>
-<li>img - 圖片</li>
-<li>input - 輸入框</li>
-</ul>
-</li>
-</ul>
-<h2 id="可變元素"><a href="#可變元素" class="headerlink" title="可變元素"></a>可變元素</h2><p>可變元素為根據上下文語境決定該元素為區塊元素或者行內元素</p>
-<h3 id="可變元素包含"><a href="#可變元素包含" class="headerlink" title="可變元素包含"></a>可變元素包含</h3><ul>
-<li>applet - java applet</li>
-<li>button - 按鈕</li>
-<li>del - 刪除</li>
-<li>iframe - 嵌入框架的應用</li>
-<li>ins - 定義標記插入的部份</li>
-<li>map - 圖片區塊</li>
-<li>object - object對象</li>
-<li>script - 嵌入或引用要執行的程式碼</li>
-</ul>
-<h2 id="特例規則"><a href="#特例規則" class="headerlink" title="特例規則"></a>特例規則</h2><p>基本上區塊元素可以包含行內元素和某些區塊元素，行內元素不能包含區塊元素，只能包含行內元素，但有些小特例，例如:</p>
-<ul>
-<li><p>a 連結幾乎都能包含，不能包含 a 連結</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//錯誤示範</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>test<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>p 段落不能包含區塊元素</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//錯誤示範</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>test<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>li 標籤可以包含 div 以及他的父元素 ul, ol</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>123<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>456<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>789<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a);   <span class="comment">//ReferenceError: a is not defined</span></span><br></pre></td></tr></table></figure>
 
-</li>
+<p>從上面例子來看，因為屬於函式作用域(function scope)，我們不能從 <code>function</code> 內拿到 <code>a</code> 值 ，也就是說只能在函式內才能使用</p>
+<p>而 <code>const</code> 和 <code>let</code> 屬於<strong>區塊作用域</strong>，區塊如 <code>if</code>、<code>for</code>、<code>switch</code>、<code>while</code> 等等有使用區塊(<code>{ }</code>)語句</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">let</span> a = <span class="number">100</span>;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(a);   <span class="comment">//ReferenceError: a is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> b = <span class="string">'我不能來出來'</span>;</span><br><span class="line">  <span class="keyword">var</span> c = <span class="string">'我可以拿出來'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(c);   <span class="comment">//我可以拿出來</span></span><br><span class="line"><span class="built_in">console</span>.log(b);   <span class="comment">//ReferenceError: b is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>以 <code>funtion</code> 一樣也是會出現錯誤，但我們使用 <code>if</code> 發現用 <code>var</code> 宣告的 <code>c</code> 是可以取到值的，而 <code>b</code> 則不行</p>
+<p>再來我們使用「開發人員工具」輸入 <code>window</code> 去搜尋，會發現 <code>c</code> 竟然變成全域變數了，由此得知使用 <code>const</code> 和 <code>let</code> 可以確保不會污染到全域</p>
+<h3 id="重複宣告"><a href="#重複宣告" class="headerlink" title="重複宣告"></a>重複宣告</h3><p>我們來看看以下問題答案是什麼</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//範例一</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">a = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">234</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//範例二</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">1</span>;</span><br><span class="line">b = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> c = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> c = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//範例三</span></span><br><span class="line"><span class="keyword">const</span> d = <span class="number">3</span>;</span><br><span class="line">d = <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>範例一 : <code>var</code> 是允許重複宣告的也可以重新賦值，而且即使在同一個作用域，同樣名稱的變數也允許重複宣告，所以 <code>a</code> 答案就是 234 </li>
+<li>範例二 : <code>let</code> 與 <code>var</code> 的不同點在於不能重複宣告，所以 <code>b</code> 答案是 3 ，而 <code>c</code> 的答案則是 <code>Identifier &#39;c&#39; has already been declared</code></li>
+<li>範例三 : <code>const</code> 則是不能重複宣告也不能重新賦值，只能用來宣告常數(在 ES6 中的定義是constant variable 固定的變數)，所以 <code>d</code> 的答案是 <code>Assignment to constant variable.</code></li>
 </ul>
-<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>如果有區塊或者行內元素想改變元素也可以使用 CSS 的 <code>display</code>，例如 li 區塊元素改成水平的時候；或者當純只是想要水平並列但一樣想要保持是區塊的話就能使用 <code>inline-block</code> 或者 <code>flex</code>，這又是另外一種坑惹XD</p>
+<h4 id="const-的特性"><a href="#const-的特性" class="headerlink" title="const 的特性"></a>const 的特性</h4><p><code>const</code>除了以上特性外，對於物件和陣列來說若只是傳參考也可以使用，另外還有一點就是必須一定要有值，對於<code>var</code> 和 <code>let</code> 宣告變數可以不賦予值，但 <code>const</code> 不賦值就會出錯</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a;   <span class="comment">//Missing initializer in const declaration</span></span><br></pre></td></tr></table></figure>
+
+<p><small>其實可以這樣想你都要宣告一個變數了怎麼可能還不賦予值對吧XDD，而 const 又不能更動值，所以邏輯上 const 就一定要有值囉</small></p>
+<blockquote>
+<p>關於<code>const</code>使用在物件或者陣列上，參考這篇 <a href="https://yanennnnn.github.io/20200728/ckdbcf3nd0000hc7kbnvc1juz/#more">文章</a></p>
+</blockquote>
+<h3 id="Hoisting-變量提升"><a href="#Hoisting-變量提升" class="headerlink" title="Hoisting 變量提升"></a>Hoisting 變量提升</h3><p>使用 <code>var</code> 宣告變數時，會有一種特性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<p>答案竟然不是 <code>a is not defined</code> 而是 <code>undefined</code>，這是因為<strong>Hoisting</strong>的關係</p>
+<p><code>var</code>有提升，那 <code>const</code> 和 <code>let</code>呢?</p>
+<pre><code class="javascript"><span class="built_in">console</span>.log(b);  <span class="comment">//ReferenceError: b is not defined</span>
+<span class="keyword">let</span> b = <span class="number">123</span>;</code></pre>
+<p>是 <code>b is not defined</code>耶，這樣說明是不是代表沒有提升囉? 哦不不不，哦不不不，我看你是 too young too simple(誤</p>
+<p>其實是 <code>const</code> 和 <code>let</code> 也是存在變量提升的，但因為 <strong>暫時死區（Temporal Dead Zone，TDZ)</strong> 的關係，才會感覺沒有提升</p>
+<blockquote>
+<p><strong>TDZ</strong> : 如宣告變數前存取該變數會產生 <code>ReferenceError</code> 錯誤，這就是稱為 暫時死區 (Temporal Dead Zone)</p>
+</blockquote>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>最後簡單整理一個表格提供參考，也可以知道何時該用什麼方法宣告</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">var</th>
+<th align="center">let</th>
+<th align="center">const</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">作用域(範圍)</td>
+<td align="center">函式</td>
+<td align="center">區塊</td>
+<td align="center">區塊</td>
+</tr>
+<tr>
+<td align="center">重複宣告</td>
+<td align="center">可</td>
+<td align="center">不可</td>
+<td align="center">不可</td>
+</tr>
+<tr>
+<td align="center">重新賦值</td>
+<td align="center">可</td>
+<td align="center">可</td>
+<td align="center">不可</td>
+</tr>
+<tr>
+<td align="center">變量提升</td>
+<td align="center">有</td>
+<td align="center">有</td>
+<td align="center">有</td>
+</tr>
+</tbody></table>
 
       
     </div>
@@ -591,7 +550,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/HTML/" rel="tag"><i class="fa fa-tag"></i> HTML</a>
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+            <a href="/tags/ES6/" rel="tag"><i class="fa fa-tag"></i> ES6</a>
           
         </div>
       
@@ -604,8 +565,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/20200825/undefined" rel="next" title="六角 - JS 實戰班心得 ">
-                <i class="fa fa-chevron-left"></i> 六角 - JS 實戰班心得 
+              <a href="/20200728/undefined/" rel="next" title="JS 趴趴走 - ES6 關於 const 的宣告">
+                <i class="fa fa-chevron-left"></i> JS 趴趴走 - ES6 關於 const 的宣告
               </a>
             
           </div>
@@ -613,6 +574,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/20200825/undefined/" rel="prev" title="六角 - JS 實戰班心得 ">
+                六角 - JS 實戰班心得  <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -751,7 +716,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#區塊元素-block"><span class="nav-number">2.</span> <span class="nav-text">區塊元素(block)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#區塊元素包含"><span class="nav-number">2.1.</span> <span class="nav-text">區塊元素包含</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行內元素-inline"><span class="nav-number">3.</span> <span class="nav-text">行內元素(inline)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#行內元素包含"><span class="nav-number">3.1.</span> <span class="nav-text">行內元素包含</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可變元素"><span class="nav-number">4.</span> <span class="nav-text">可變元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可變元素包含"><span class="nav-number">4.1.</span> <span class="nav-text">可變元素包含</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特例規則"><span class="nav-number">5.</span> <span class="nav-text">特例規則</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#結論"><span class="nav-number">6.</span> <span class="nav-text">結論</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const-vs-let-vs-var"><span class="nav-number">2.</span> <span class="nav-text">const vs let vs var</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域-汙染全域"><span class="nav-number">2.1.</span> <span class="nav-text">作用域(汙染全域)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重複宣告"><span class="nav-number">2.2.</span> <span class="nav-text">重複宣告</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#const-的特性"><span class="nav-number">2.2.1.</span> <span class="nav-text">const 的特性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hoisting-變量提升"><span class="nav-number">2.3.</span> <span class="nav-text">Hoisting 變量提升</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#總結"><span class="nav-number">3.</span> <span class="nav-text">總結</span></a></li></ol></div>
             
 
           </div>
