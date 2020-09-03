@@ -307,7 +307,7 @@ hr {
 blockquote {
   padding: 0 15px;
   color: #666;
-  border-left: 4px solid #ddd;
+  border-left: 4px solid #d81c1c;
 }
 blockquote cite::before {
   content: "-";
@@ -1291,6 +1291,10 @@ pre .javascript .function {
     text-align: justify;
   }
 }
+.posts-expand .post-body h2 {
+  font-size: 22px;
+  border-bottom: 1px solid #eee;
+}
 .posts-expand .post-body h2,
 .posts-expand .post-body h3,
 .posts-expand .post-body h4,
@@ -1324,7 +1328,7 @@ pre .javascript .function {
   visibility: visible;
 }
 .posts-expand .post-body ul li {
-  list-style: circle;
+  list-style: square;
 }
 .posts-expand .post-body img {
   box-sizing: border-box;
@@ -1823,7 +1827,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d77059;
+  background: #85b0ff;
 }
 .links-of-blogroll {
   font-size: 13px;
