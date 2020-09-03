@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yanennnnn.github.io/"/>
-  <updated>2020-08-28T03:02:07.563Z</updated>
+  <updated>2020-09-03T13:14:43.421Z</updated>
   <id>https://yanennnnn.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTML 小知識 - Web Storage vs Cookie</title>
+    <link href="https://yanennnnn.github.io/html/20200903/d495ed5d/"/>
+    <id>https://yanennnnn.github.io/html/20200903/d495ed5d/</id>
+    <published>2020-09-03T11:46:55.000Z</published>
+    <updated>2020-09-03T13:14:43.421Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://i.imgur.com/wUurW9q.png" alt></p><a id="more"></a><h2 id="什麼是-Web-Storage-什麼是-Cookie"><a href="#什麼是-Web-Storage-什麼是-Cookie" class="headerlink" title="什麼是 Web Storage 什麼是 Cookie"></a>什麼是 Web Storage 什麼是 Cookie</h2><p>Web Storage 為瀏覽器中的儲存區，可把網頁的資料儲存在本地端，其作用如同 Cookie，Web Storage 和 Cookie 儲存的資料，皆以 key-value pair (鍵對值)的形式保存</p><p>Web Storage 在一般瀏覽器下有 5 MB 的儲存空間，相比 Cookie 的 4 KB 來說相對來的大，另外 Cookie 中的資料會在本地端瀏覽器與伺服器之間，所以使用 Cookie 就要 request ，導致性能會降低，而 Web Storage 只會在本地端，所以減少了對伺服器的資料請求</p><h3 id="應用場景"><a href="#應用場景" class="headerlink" title="應用場景"></a>應用場景</h3><p>由於 Cookie 的資料可以使用在用戶端與伺服器之間，所以比較常用在判斷用戶是否登錄。針對登錄過的用戶，伺服器會在用戶端登錄時往 Cookie 中插入一段加密過的唯一辨識單一用戶的辨識碼，下次只要讀取這個值就可以判斷當前用戶是否登錄，而 Web Storage 就能使用在曾瀏覽的商品或者購物車訊息這些只要用戶端就能做的事情，這樣也能減少瀏覽器送出 request 至伺服器</p><h2 id="sessionStorage-vs-localStorage"><a href="#sessionStorage-vs-localStorage" class="headerlink" title="sessionStorage vs localStorage"></a>sessionStorage vs localStorage</h2><p>Web Storage 有兩種：sessionStorage 以及 localStorage，使用 windows 的打開 F12 ( HTML code )，進入 Application 會有 Storage 列表，就能從那邊看到 sessionStorage 和 localStorage 儲存的資料</p><h3 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="#sessionStorage"></a>#sessionStorage</h3><p>屬於暫存性，僅在當下有效，關閉頁面或瀏覽器後被清除，通過 <code>Window.sessionStorage</code> 來使用</p><h3 id="localStorage"><a href="#localStorage" class="headerlink" title="#localStorage"></a>#localStorage</h3><p>屬於永久性，瀏覽器關閉後，再次打開依然有效，通過 <code>Window.localStorage</code> 來使用</p><h3 id="sessionStorage-和-localStorage-共通點"><a href="#sessionStorage-和-localStorage-共通點" class="headerlink" title="sessionStorage 和 localStorage 共通點"></a>sessionStorage 和 localStorage 共通點</h3><ul><li>在瀏覽器的隱私模式下面是不可讀取的</li><li>目前所有的瀏覽器中都會把值型別限定為 string 型別，所以像是物件型別需要使用 JSON 轉換成字串型別<blockquote><p>JASO 全名為 JavaScript Object Notation (Javascript 物件符號)，可以把資料轉成字串型</p></blockquote></li><li>儲存資料的時候，可用 Storage 物件的 setItem 方法，取值使用 getItem 方法</li><li>不能被爬蟲抓取到</li><li>瀏覽器的大小不統一，並且在IE8以上的IE版本才支援</li><li>本質上是對字串的讀取，如果儲存內容多的話會消耗記憶體空間，會導致頁面變卡</li></ul><h3 id="localStorage的使用"><a href="#localStorage的使用" class="headerlink" title="localStorage的使用"></a>localStorage的使用</h3><ul><li><p>儲存資料</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">localStorage.setItem(<span class="string">"keyName"</span>,<span class="string">"dataName"</span>) <span class="comment">//前者為儲存項目的"鍵"，後者為鍵值</span></span><br><span class="line">localStorage.keyName = <span class="string">'dataName'</span></span><br></pre></td></tr></table></figure></li><li><p>讀取資料</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">localStorage.getItem(<span class="string">"keyName"</span>) <span class="comment">//讀取儲存在 localStorage 鍵值為 keyName 裡的值</span></span><br><span class="line">localStorage.keyName <span class="comment">//讀取儲存在 localStorage 鍵值為 keyName 裡的值</span></span><br><span class="line">localStorage.valueOf() <span class="comment">//讀取儲存在 localStorage 上的所有資料</span></span><br><span class="line">localStorage.key(<span class="number">0</span>) <span class="comment">// 讀取第一個鍵名</span></span><br></pre></td></tr></table></figure></li><li><p>刪除資料</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.removeItem(<span class="string">"keyName"</span>); <span class="comment">//刪除儲存在 localStorage 鍵值為 keyName 裡的值</span></span><br></pre></td></tr></table></figure></li><li><p>將 JSON 儲存到 localStorage 裡</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data = [</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">'小華'</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    sex: <span class="string">'male'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">'小花'</span>,</span><br><span class="line">    age: <span class="number">17</span>,</span><br><span class="line">    sex: <span class="string">'female'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">'小美'</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    sex: <span class="string">'female'</span></span><br><span class="line">  &#125;,</span><br><span class="line">]</span><br><span class="line">localStorage.setItem(<span class="string">"people"</span>, <span class="built_in">JSON</span>.stringify(data)); <span class="comment">// JSON 轉為字串存到 localStorage 裡</span></span><br><span class="line"><span class="keyword">const</span> newPeople = <span class="built_in">JSON</span>.parse(localStorage.getItem(<span class="string">"people"</span>)); <span class="comment">//把取出的 localStorage 資料使用 JSON 轉換成 JavaScript 的數值或是物件</span></span><br><span class="line"><span class="built_in">console</span>.log(newPeople)</span><br></pre></td></tr></table></figure></li><li><p>清空</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.clear()</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/wUurW9q.png&quot; alt&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="HTML" scheme="https://yanennnnn.github.io/categories/html/"/>
+    
+    
+      <category term="HTML" scheme="https://yanennnnn.github.io/tags/HTML/"/>
+    
+  </entry>
   
   <entry>
     <title>HTML 小知識 - 區塊元素 vs 行內元素</title>
