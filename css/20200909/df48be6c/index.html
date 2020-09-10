@@ -88,7 +88,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="CSS3,Grid,版面排版,RWD,repeat(),minmax()">
 
 
 
@@ -101,16 +101,20 @@
 
 
 
-<meta name="description" content="新手走走看看亂逛逛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Code。YuKun">
-<meta property="og:url" content="https://yanennnnn.github.io/tags/JavaScript/index.html">
+<meta name="description" content="前言前面我們了解怎麼使用 grid-template-columns, grid-template-rows 設定欄列，但是如果你有很多重複的欄列呢? repeat()原本我們設定欄列是這樣 1grid-template-columns: 50px 200px 20% 50px 200px 20%;  或者 1grid-auto-columns:30px;  但以上面方式假如你有很多欄寬但是欄寬">
+<meta name="keywords" content="CSS3,Grid,版面排版,RWD,repeat(),minmax()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS - 初步了解 CSS Gird - 使用 repeat() 製作 RWD ">
+<meta property="og:url" content="https://yanennnnn.github.io/css/20200909/df48be6c/index.html">
 <meta property="og:site_name" content="Code。YuKun">
-<meta property="og:description" content="新手走走看看亂逛逛">
+<meta property="og:description" content="前言前面我們了解怎麼使用 grid-template-columns, grid-template-rows 設定欄列，但是如果你有很多重複的欄列呢? repeat()原本我們設定欄列是這樣 1grid-template-columns: 50px 200px 20% 50px 200px 20%;  或者 1grid-auto-columns:30px;  但以上面方式假如你有很多欄寬但是欄寬">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://i.imgur.com/AEcGgSo.png">
+<meta property="og:updated_time" content="2020-09-10T08:22:26.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Code。YuKun">
-<meta name="twitter:description" content="新手走走看看亂逛逛">
+<meta name="twitter:title" content="CSS - 初步了解 CSS Gird - 使用 repeat() 製作 RWD ">
+<meta name="twitter:description" content="前言前面我們了解怎麼使用 grid-template-columns, grid-template-rows 設定欄列，但是如果你有很多重複的欄列呢? repeat()原本我們設定欄列是這樣 1grid-template-columns: 50px 200px 20% 50px 200px 20%;  或者 1grid-auto-columns:30px;  但以上面方式假如你有很多欄寬但是欄寬">
+<meta name="twitter:image" content="https://i.imgur.com/AEcGgSo.png">
 
 
 
@@ -140,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="https://yanennnnn.github.io/tags/JavaScript/">
+  <link rel="canonical" href="https://yanennnnn.github.io/css/20200909/df48be6c/">
 
 
 
 
 
-  <title>標籤: JavaScript | Code。YuKun</title>
+  <title>CSS - 初步了解 CSS Gird - 使用 repeat() 製作 RWD  | Code。YuKun</title>
   
 
 
@@ -176,7 +180,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband">
       <a href="https://github.com/yanennnnn" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
     </div>
@@ -314,104 +318,233 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>JavaScript<small>標籤</small>
-        </h2>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yanennnnn.github.io/css/20200909/df48be6c/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yanennnnn">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code。YuKun">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/javascript/20200801/b5b19c96/" itemprop="url">
-              
-                <span itemprop="name">JS 趴趴走 - ES6 const & let</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">CSS - 初步了解 CSS Gird - 使用 repeat() 製作 RWD </h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-08-01T15:39:26+08:00" content="2020-08-01">
-          08-01
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-09-09T20:39:04+08:00">
+                2020-09-09
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/javascript/20200728/eccdaf7f/" itemprop="url">
-              
-                <span itemprop="name">JS 趴趴走 - ES6 關於 const 的宣告</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-07-28T14:33:10+08:00" content="2020-07-28">
-          07-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
+        <p><img src="https://i.imgur.com/AEcGgSo.png" alt></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面我們了解怎麼使用 <code>grid-template-columns</code>, <code>grid-template-rows</code> 設定欄列，但是如果你有很多重複的欄列呢?</p>
+<h2 id="repeat"><a href="#repeat" class="headerlink" title="repeat()"></a>repeat()</h2><p>原本我們設定欄列是這樣</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">grid-template-columns</span>: 50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20% 50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20%;</span><br></pre></td></tr></table></figure>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<p>或者</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">grid-auto-columns</span><span class="selector-pseudo">:30px</span>;</span><br></pre></td></tr></table></figure>
 
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/javascript/20200727/483210d8/" itemprop="url">
-              
-                <span itemprop="name">JS 趴趴走 - ES6 Fetch 應用</span>
-              
-            </a>
-        
-      </h3>
+<p>但以上面方式假如你有很多欄寬但是欄寬不一樣但是又有許多重複的呢?你就會變成</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">grid-template-columns</span>: 50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20% 50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20% 50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20% 50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20% 50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20% 50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20%;</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-07-27T17:47:04+08:00" content="2020-07-27">
-          07-27
-        </time>
-      </div>
+<p>這樣豈不是太長了又難維護</p>
+<p>所以這時我們就要使用 repeat()，把上面又長又臭的欄寬改成</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">grid-template-columns</span>: <span class="selector-tag">repeat</span>(6,50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20%); <span class="comment">/* 一行內要重複幾次，後面則是欄位寬   */</span></span><br></pre></td></tr></table></figure>
 
-    </header>
-  </article>
+<p>意思就是，第一個是行內想重複幾次，後面則帶入想要重複的寬度，是不是變得簡單又明瞭惹~</p>
+<p>另外 <code>repeat()</code> 可以多用，例如前面重複一樣，後面是另外的重複的就可以寫成</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">grid-template-columns</span>: <span class="selector-tag">repeat</span>(2,70<span class="selector-tag">px</span> 30<span class="selector-tag">px</span>) <span class="selector-tag">repeat</span>(2,100<span class="selector-tag">px</span>);</span><br></pre></td></tr></table></figure>
 
+<p>還有如果說其中有不想重複的也可以插入進去</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">grid-template-columns</span>: <span class="selector-tag">repeat</span>(2,70<span class="selector-tag">px</span> 30<span class="selector-tag">px</span>) 150<span class="selector-tag">px</span> <span class="selector-tag">repeat</span>(3,100<span class="selector-tag">px</span>) <span class="selector-tag">auto</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="重複的數量不確定"><a href="#重複的數量不確定" class="headerlink" title="重複的數量不確定"></a>重複的數量不確定</h2><p>前面都是自己設定要重複的數量，若是不知道數量的情況下，這時就可以使用 <code>auto-fit</code>, <code>auto-fill</code> 自動填滿</p>
+<ul>
+<li>auto-fill<br>會根據 grid 子層寬度自動計算需要填充的數量，若父層寬度大於子層許多的話，就會產生隱藏的欄位</li>
+<li>auto-fit<br>和 <code>auto-fill</code> 類似，視覺上的效果是會將原本欄位內的子層寬度都平均拉長，但實際上還是有新增欄位數，只是被摺疊起來了</li>
+</ul>
+<p>差別:</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="auto-fill vs auto-fit" src="https://codepen.io/SaraSoueidan/embed/JrLdBQ?height=300&theme-id=37551&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/SaraSoueidan/pen/JrLdBQ" target="_blank" rel="noopener">auto-fill vs auto-fit</a> by Sara Soueidan
+  (<a href="https://codepen.io/SaraSoueidan" target="_blank" rel="noopener">@SaraSoueidan</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+<small>Codepen 來自[CSS-Tricks](https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/)</small>
+
+<h2 id="minmax"><a href="#minmax" class="headerlink" title="minmax()"></a>minmax()</h2><p>除了 <code>repeat()</code> 能重複欄位不用自行設定之外，製作成 RWD 的另外大功成就是 <code>minmax()</code>，用來設定最大值與最小值</p>
+<p>使用 RWD 就是希望能跟著螢幕大小縮放並且滿版的時不要有空白處，所以我們就能設定成 <code>minmax(100px,1fr)</code>，意思就是最小寬度是 100px，而最大寬度則是自動1等分</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">grid-template-columns</span>: <span class="selector-tag">repeat</span>(<span class="selector-tag">auto-fit</span>, <span class="selector-tag">minmax</span>(150<span class="selector-tag">px</span>, 1<span class="selector-tag">fr</span>));</span><br></pre></td></tr></table></figure>
+
+<p>範例:</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="CSS Grid minmax()" src="https://codepen.io/yennnnn/embed/gOrvyEJ?height=300&theme-id=37551&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/yennnnn/pen/gOrvyEJ" target="_blank" rel="noopener">CSS Grid minmax()</a> by yanennn
+  (<a href="https://codepen.io/yennnnn" target="_blank" rel="noopener">@yennnnn</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<h2 id="grid-auto-flow"><a href="#grid-auto-flow" class="headerlink" title="grid-auto-flow"></a>grid-auto-flow</h2><p>使用過 flex 的知道 <code>flex-direction</code> 這個屬性吧，用來控制排序要水平的還是垂直，<code>grid-auto-flow</code> 也是一樣</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">grid-auto-flow</span>: <span class="selector-tag">row</span>;</span><br><span class="line"><span class="selector-tag">grid-auto-flow</span>: <span class="selector-tag">column</span>;</span><br><span class="line"><span class="selector-tag">grid-auto-flow</span>: <span class="selector-tag">dense</span>;</span><br><span class="line"><span class="selector-tag">grid-auto-flow</span>: <span class="selector-tag">row</span> <span class="selector-tag">dense</span>;</span><br><span class="line"><span class="selector-tag">grid-auto-flow</span>: <span class="selector-tag">column</span> <span class="selector-tag">dense</span>;</span><br></pre></td></tr></table></figure>
+
+<p>grid 最初默認值是垂直排列 <code>row</code>，當你設定的 <code>template</code> 排完後，接著就會往下一行排列，所以說如果是水平排列的話(先從上往下排列好後，往旁邊繼續排列)就要改成 <code>grid-auto-flow: column;</code></p>
+<p>還記得我們 grid 是可以設定欄寬列高嗎，假如你的欄寬列高超過 <code>template</code> 的設定，grid 就會自動幫你往下一行，這樣就會產生空白欄位，這邊我們就可以使用 <code>dense</code> : 利用其他合的欄寬補足空白，以下範例就能發現第五格原本該往下排，但使用了 <code>dense</code> 所以自動補足上面的空白了</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="grid-auto-flow" src="https://codepen.io/yennnnn/embed/ZEWxJwp?height=300&theme-id=37551&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/yennnnn/pen/ZEWxJwp" target="_blank" rel="noopener">grid-auto-flow</a> by yanennn
+  (<a href="https://codepen.io/yennnnn" target="_blank" rel="noopener">@yennnnn</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+
+
+
+<p>用上面的方法，就能做出漂亮的 RWD 了//，最後來個 RWD 排版 ~</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="CSS Grid " src="https://codepen.io/yennnnn/embed/eYZMYKw?height=300&theme-id=37551&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/yennnnn/pen/eYZMYKw" target="_blank" rel="noopener">CSS Grid </a> by yanennn
+  (<a href="https://codepen.io/yennnnn" target="_blank" rel="noopener">@yennnnn</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>只要能掌握 gird 的規則，其實就不難，我也還在摸索XD<br>希望大家都能做出自己喜歡的 RWD 排版//</p>
+<h2 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h2><p><a href="https://www.youtube.com/watch?v=fYcz3FUqv7M" target="_blank" rel="noopener">CSS GRID / CSS格線好好玩【完整版】 | CSS教學 | CSS格線</a><br><a href="https://www.zhangxinxu.com/wordpress/2019/12/css-repeat/" target="_blank" rel="noopener">CSS repeat()函數詳細介紹</a><br><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">A Complete Guide to Grid</a><br><a href="https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/" target="_blank" rel="noopener">Auto-Sizing Columns in CSS Grid: auto-fill vs auto-fit</a></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS3/" rel="tag"><i class="fa fa-tag"></i> CSS3</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/css/20200907/64dd8c62/" rel="next" title="CSS - 初步了解 CSS Gird - (變化版面)">
+                <i class="fa fa-chevron-left"></i> CSS - 初步了解 CSS Gird - (變化版面)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -419,6 +552,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -439,8 +576,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -507,6 +653,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#repeat"><span class="nav-number">2.</span> <span class="nav-text">repeat()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重複的數量不確定"><span class="nav-number">3.</span> <span class="nav-text">重複的數量不確定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#minmax"><span class="nav-number">4.</span> <span class="nav-text">minmax()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grid-auto-flow"><span class="nav-number">5.</span> <span class="nav-text">grid-auto-flow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#結論"><span class="nav-number">6.</span> <span class="nav-text">結論</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考文獻"><span class="nav-number">7.</span> <span class="nav-text">參考文獻</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -656,6 +818,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

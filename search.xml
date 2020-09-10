@@ -1,6 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CSS - 初步了解 CSS Gird - (變化版面)</title>
+    <url>/css/20200907/64dd8c62/</url>
+    <content><![CDATA[<p><img src="https://i.imgur.com/AEcGgSo.png" alt></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在上一篇我們知道如何使用 CSS Grid 的固定版面樣式，這一篇就來筆記一下如何變化</p>
+<a id="more"></a>
+
+<h3 id="子層指定格線"><a href="#子層指定格線" class="headerlink" title="子層指定格線"></a>子層指定格線</h3><p>上一篇我們在父層使用 <code>grid-template-areas</code> 設定版面位置，但如果使用這個方式，你不能交錯也不能重疊，所以我們可以使用子層來指定欄位位置</p>
+<h3 id="grid-column-start-grid-column-end-grid-row-start-grid-row-end"><a href="#grid-column-start-grid-column-end-grid-row-start-grid-row-end" class="headerlink" title="grid-column-start, grid-column-end, grid-row-start, grid-row-end"></a>grid-column-start, grid-column-end, grid-row-start, grid-row-end</h3><ul>
+<li>grid-column-start : 欄線開始</li>
+<li>grid-column-end  : 欄線結束</li>
+<li>grid-row-start : 列線開始</li>
+<li>grid-row-end : 列線結束</li>
+</ul>
+<p>我們設定 <code>grid-template-columns</code>, <code>grid-template-rows</code></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="number">40px</span> <span class="number">50px</span> auto <span class="number">50px</span> <span class="number">40px</span>;</span><br><span class="line">  <span class="attribute">grid-template-rows</span>: <span class="number">25%</span> <span class="number">100px</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>產生的圖如下圖</p>
+<p><img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-column-row-start-end-01.svg" alt="圖源來自CSS-Tricks"><br><small>圖片來自<a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">CSS-Tricks</a></small></p>
+<p>從圖上可以了解，線是從最外圍(最起點)開始算到另一邊的最外圍(最終點)，所以以圖片來看 <code>column</code> 一共有6條線，而 <code>row</code> 有4條線</p>
+<p>得到線條的方式有</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column-start</span>: &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;</span><br><span class="line">  <span class="attribute">grid-column-end</span>: &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;</span><br><span class="line">  <span class="attribute">grid-row-start</span>: &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;</span><br><span class="line">  <span class="attribute">grid-row-end</span>: &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>line : 用數字表示 物件 所在的線</li>
+<li>span <code>number</code> : 物件所佔用的欄位數；使用此方式，會計算到佔用欄位數的下一行</li>
+<li>span <code>name</code> : 物件所在的 grid 名稱；使用此方式，會計算到物件 gird 名稱的下一行</li>
+<li>auto 自動 </li>
+</ul>
+<p>以上面圖為範例就能這樣使用</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column-start</span>: <span class="number">2</span>; <span class="comment">/*從第2條線開始計算*/</span></span><br><span class="line">  <span class="attribute">grid-column-end</span>: <span class="number">5</span>;  <span class="comment">/*結束到第5條線*/</span></span><br><span class="line">  <span class="attribute">grid-row-start</span>: <span class="number">1</span>; <span class="comment">/*從第1條線開始計算*/</span></span><br><span class="line">  <span class="attribute">grid-row-end</span>: span <span class="number">2</span>;  <span class="comment">/*橫跨2個欄位後結束*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="只橫跨一個欄位"><a href="#只橫跨一個欄位" class="headerlink" title="只橫跨一個欄位"></a>只橫跨一個欄位</h3><p>另外，如果你只想要橫跨一個欄位的話，可以使用 start 或者 end 其中一個就好</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item-a</span>&#123;</span><br><span class="line">  <span class="attribute">grid-column-start</span>: <span class="number">2</span>; <span class="comment">/*從第2條欄線開始從左到右開始計算一個欄位數*/</span></span><br><span class="line">  <span class="attribute">grid-row-end</span>: <span class="number">3</span>; <span class="comment">/*第3條列線結束從下到上計算一個欄位數*/</span></span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#faa</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="負數"><a href="#負數" class="headerlink" title="負數"></a>負數</h3><p>除了正數以外，也可以只用負數計算</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item-b</span>&#123;</span><br><span class="line">  <span class="attribute">grid-column-end</span>: -<span class="number">3</span>; <span class="comment">/*第-3條欄結束線從右到左計算一個欄位數*/</span></span><br><span class="line">  <span class="attribute">grid-row-start</span>: -<span class="number">4</span>; <span class="comment">/*第-4條線開始計從上到下算一個欄位數*/</span></span><br><span class="line">  <span class="attribute">background</span>:<span class="number">#aaf</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="grid-column-grid-row"><a href="#grid-column-grid-row" class="headerlink" title="grid-column, grid-row"></a>grid-column, grid-row</h2><ul>
+<li>grid-column : <code>grid-column-start</code> + <code>grid-column-end</code> 的結合，使用 “<b>/<b>“ 連結在一起</b></b></li>
+<li>grid-row :<code>grid-row-start</code> + <code>grid-row-end 的結合</code>，使用 “<b>/<b>“ 連結在一起</b></b></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item-c</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column</span>:<span class="number">3</span>/span <span class="number">2</span>; <span class="comment">/*第3條欄開始橫跨2個欄位數*/</span></span><br><span class="line">  <span class="attribute">grid-row</span>:-<span class="number">2</span>/-<span class="number">1</span>; <span class="comment">/*第-2條列開始到-1條線結束*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-column-row.svg" alt="圖源來自CSS-Tricks"><br><small>圖片來自<a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">CSS-Tricks</a></small></p>
+<h3 id="grid-area"><a href="#grid-area" class="headerlink" title="grid-area"></a>grid-area</h3><p><code>grid-area</code>不只能自訂區域名稱給予<code>grid-template-areas</code>定義位置，也能指定 grid 線數設定範圍</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"> <span class="selector-class">.item-d</span> &#123;</span><br><span class="line">   <span class="comment">/* 列線開始線，欄線開始線，列線結束線，欄線結束線 */</span></span><br><span class="line">  <span class="attribute">grid-area</span>: &lt;row-start&gt; / &lt;column-start&gt; / &lt;row-end&gt; / &lt;column-end&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上給個範例:</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="CSS  gird 子層設定格線" src="https://codepen.io/yennnnn/embed/wvGpEgV?height=300&theme-id=37551&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/yennnnn/pen/wvGpEgV" target="_blank" rel="noopener">CSS  gird 子層設定格線</a> by yanennn
+  (<a href="https://codepen.io/yennnnn" target="_blank" rel="noopener">@yennnnn</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<h2 id="父層自動欄高-自動列高"><a href="#父層自動欄高-自動列高" class="headerlink" title="父層自動欄高/自動列高"></a>父層自動欄高/自動列高</h2><p><code>grid-template-columns</code> , <code>grid-template-rows</code> 是需要設定欄位寬高，但如果格子很多的話，這樣就不方便了，所以我們就可以使用父層自動計算欄高/列高</p>
+<h3 id="grid-auto-columns-grid-auto-rows"><a href="#grid-auto-columns-grid-auto-rows" class="headerlink" title="grid-auto-columns grid-auto-rows"></a>grid-auto-columns grid-auto-rows</h3><p>自動生成的欄位的大小</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">grid-auto-columns</span>: &lt;track-size&gt; ...;</span><br><span class="line">  <span class="attribute">grid-auto-rows</span>: &lt;track-size&gt; ...;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先我們給予的長寬</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">grid-auto-columns</span>: <span class="number">60px</span>;</span><br><span class="line">  <span class="attribute">grid-auto-rows</span>: <span class="number">90px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>意思就是每個欄位寬為60px，高都是90px;<br><img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-auto-columns-rows-01.svg" alt="圖片來自css-tricks"><br><small>圖片來自<a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">CSS-Tricks</a></small></p>
+<p>這時我們再定義子層的配置</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item-a</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column</span>: <span class="number">1</span> / <span class="number">2</span>;</span><br><span class="line">  <span class="attribute">grid-row</span>: <span class="number">2</span> / <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item-b</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column</span>: <span class="number">5</span> / <span class="number">6</span>;</span><br><span class="line">  <span class="attribute">grid-row</span>: <span class="number">2</span> / <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-auto-columns-rows-03.svg" alt="圖片來自css-tricks"><br><small>圖片來自<a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">CSS-Tricks</a></small></p>
+<p>你會發現即使 <code>item-b</code> 的欄，我們從未定義第5或6列，但因為 <code>grid-auto-columns</code> 的關係，中間產生了隱藏格線，484很神奇<del>~</del></p>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>最後整理上面所學到的屬性:<br><code>grid-column-start</code>: 子層欄線起始<br><code>grid-column-end</code>: 子層欄線結束<br><code>grid-row-start</code>: 子層列線起始<br><code>grid-row-end</code>: 子層列線結束<br><code>grid-column</code>: 子層欄線起始/結束<br><code>grid-row</code>: 子層列線起始/結束<br><code>grid-auto-columns</code>: 自動欄寬<br><code>grid-auto-rows</code>: 自動列高</p>
+<h2 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h2><p><a href="https://www.youtube.com/watch?v=fYcz3FUqv7M" target="_blank" rel="noopener">CSS GRID / CSS格線好好玩【完整版】 | CSS教學 | CSS格線</a><br><a href="https://wcc723.github.io/css/2017/03/22/css-grid-layout/" target="_blank" rel="noopener">CSS Grid 屬性介紹</a><br><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">A Complete Guide to Grid</a><br>圖片來自<a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">CSS-Tricks</a></p>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS3</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CSS - 初步了解 CSS Gird - (固定版面配置)</title>
     <url>/css/20200905/b7768386/</url>
     <content><![CDATA[<p><img src="https://i.imgur.com/AEcGgSo.png" alt></p>
@@ -68,6 +145,210 @@
       </categories>
       <tags>
         <tag>CSS3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS - 初步了解 CSS Gird - 使用 repeat() 製作 RWD </title>
+    <url>/css/20200909/df48be6c/</url>
+    <content><![CDATA[<p><img src="https://i.imgur.com/AEcGgSo.png" alt></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面我們了解怎麼使用 <code>grid-template-columns</code>, <code>grid-template-rows</code> 設定欄列，但是如果你有很多重複的欄列呢?</p>
+<h2 id="repeat"><a href="#repeat" class="headerlink" title="repeat()"></a>repeat()</h2><p>原本我們設定欄列是這樣</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">grid-template-columns</span>: 50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20% 50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20%;</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">grid-auto-columns</span><span class="selector-pseudo">:30px</span>;</span><br></pre></td></tr></table></figure>
+
+<p>但以上面方式假如你有很多欄寬但是欄寬不一樣但是又有許多重複的呢?你就會變成</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">grid-template-columns</span>: 50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20% 50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20% 50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20% 50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20% 50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20% 50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20%;</span><br></pre></td></tr></table></figure>
+
+<p>這樣豈不是太長了又難維護</p>
+<p>所以這時我們就要使用 repeat()，把上面又長又臭的欄寬改成</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">grid-template-columns</span>: <span class="selector-tag">repeat</span>(6,50<span class="selector-tag">px</span> 200<span class="selector-tag">px</span> 20%); <span class="comment">/* 一行內要重複幾次，後面則是欄位寬   */</span></span><br></pre></td></tr></table></figure>
+
+<p>意思就是，第一個是行內想重複幾次，後面則帶入想要重複的寬度，是不是變得簡單又明瞭惹~</p>
+<p>另外 <code>repeat()</code> 可以多用，例如前面重複一樣，後面是另外的重複的就可以寫成</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">grid-template-columns</span>: <span class="selector-tag">repeat</span>(2,70<span class="selector-tag">px</span> 30<span class="selector-tag">px</span>) <span class="selector-tag">repeat</span>(2,100<span class="selector-tag">px</span>);</span><br></pre></td></tr></table></figure>
+
+<p>還有如果說其中有不想重複的也可以插入進去</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">grid-template-columns</span>: <span class="selector-tag">repeat</span>(2,70<span class="selector-tag">px</span> 30<span class="selector-tag">px</span>) 150<span class="selector-tag">px</span> <span class="selector-tag">repeat</span>(3,100<span class="selector-tag">px</span>) <span class="selector-tag">auto</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="重複的數量不確定"><a href="#重複的數量不確定" class="headerlink" title="重複的數量不確定"></a>重複的數量不確定</h2><p>前面都是自己設定要重複的數量，若是不知道數量的情況下，這時就可以使用 <code>auto-fit</code>, <code>auto-fill</code> 自動填滿</p>
+<ul>
+<li>auto-fill<br>會根據 grid 子層寬度自動計算需要填充的數量，若父層寬度大於子層許多的話，就會產生隱藏的欄位</li>
+<li>auto-fit<br>和 <code>auto-fill</code> 類似，視覺上的效果是會將原本欄位內的子層寬度都平均拉長，但實際上還是有新增欄位數，只是被摺疊起來了</li>
+</ul>
+<p>差別:</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="auto-fill vs auto-fit" src="https://codepen.io/SaraSoueidan/embed/JrLdBQ?height=300&theme-id=37551&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/SaraSoueidan/pen/JrLdBQ" target="_blank" rel="noopener">auto-fill vs auto-fit</a> by Sara Soueidan
+  (<a href="https://codepen.io/SaraSoueidan" target="_blank" rel="noopener">@SaraSoueidan</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+<small>Codepen 來自[CSS-Tricks](https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/)</small>
+
+<h2 id="minmax"><a href="#minmax" class="headerlink" title="minmax()"></a>minmax()</h2><p>除了 <code>repeat()</code> 能重複欄位不用自行設定之外，製作成 RWD 的另外大功成就是 <code>minmax()</code>，用來設定最大值與最小值</p>
+<p>使用 RWD 就是希望能跟著螢幕大小縮放並且滿版的時不要有空白處，所以我們就能設定成 <code>minmax(100px,1fr)</code>，意思就是最小寬度是 100px，而最大寬度則是自動1等分</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">grid-template-columns</span>: <span class="selector-tag">repeat</span>(<span class="selector-tag">auto-fit</span>, <span class="selector-tag">minmax</span>(150<span class="selector-tag">px</span>, 1<span class="selector-tag">fr</span>));</span><br></pre></td></tr></table></figure>
+
+<p>範例:</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="CSS Grid minmax()" src="https://codepen.io/yennnnn/embed/gOrvyEJ?height=300&theme-id=37551&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/yennnnn/pen/gOrvyEJ" target="_blank" rel="noopener">CSS Grid minmax()</a> by yanennn
+  (<a href="https://codepen.io/yennnnn" target="_blank" rel="noopener">@yennnnn</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<h2 id="grid-auto-flow"><a href="#grid-auto-flow" class="headerlink" title="grid-auto-flow"></a>grid-auto-flow</h2><p>使用過 flex 的知道 <code>flex-direction</code> 這個屬性吧，用來控制排序要水平的還是垂直，<code>grid-auto-flow</code> 也是一樣</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">grid-auto-flow</span>: <span class="selector-tag">row</span>;</span><br><span class="line"><span class="selector-tag">grid-auto-flow</span>: <span class="selector-tag">column</span>;</span><br><span class="line"><span class="selector-tag">grid-auto-flow</span>: <span class="selector-tag">dense</span>;</span><br><span class="line"><span class="selector-tag">grid-auto-flow</span>: <span class="selector-tag">row</span> <span class="selector-tag">dense</span>;</span><br><span class="line"><span class="selector-tag">grid-auto-flow</span>: <span class="selector-tag">column</span> <span class="selector-tag">dense</span>;</span><br></pre></td></tr></table></figure>
+
+<p>grid 最初默認值是垂直排列 <code>row</code>，當你設定的 <code>template</code> 排完後，接著就會往下一行排列，所以說如果是水平排列的話(先從上往下排列好後，往旁邊繼續排列)就要改成 <code>grid-auto-flow: column;</code></p>
+<p>還記得我們 grid 是可以設定欄寬列高嗎，假如你的欄寬列高超過 <code>template</code> 的設定，grid 就會自動幫你往下一行，這樣就會產生空白欄位，這邊我們就可以使用 <code>dense</code> : 利用其他合的欄寬補足空白，以下範例就能發現第五格原本該往下排，但使用了 <code>dense</code> 所以自動補足上面的空白了</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="grid-auto-flow" src="https://codepen.io/yennnnn/embed/ZEWxJwp?height=300&theme-id=37551&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/yennnnn/pen/ZEWxJwp" target="_blank" rel="noopener">grid-auto-flow</a> by yanennn
+  (<a href="https://codepen.io/yennnnn" target="_blank" rel="noopener">@yennnnn</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+
+
+
+<p>用上面的方法，就能做出漂亮的 RWD 了//，最後來個 RWD 排版 ~</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="CSS Grid " src="https://codepen.io/yennnnn/embed/eYZMYKw?height=300&theme-id=37551&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/yennnnn/pen/eYZMYKw" target="_blank" rel="noopener">CSS Grid </a> by yanennn
+  (<a href="https://codepen.io/yennnnn" target="_blank" rel="noopener">@yennnnn</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>只要能掌握 gird 的規則，其實就不難，我也還在摸索XD<br>希望大家都能做出自己喜歡的 RWD 排版//</p>
+<h2 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h2><p><a href="https://www.youtube.com/watch?v=fYcz3FUqv7M" target="_blank" rel="noopener">CSS GRID / CSS格線好好玩【完整版】 | CSS教學 | CSS格線</a><br><a href="https://www.zhangxinxu.com/wordpress/2019/12/css-repeat/" target="_blank" rel="noopener">CSS repeat()函數詳細介紹</a><br><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">A Complete Guide to Grid</a><br><a href="https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/" target="_blank" rel="noopener">Auto-Sizing Columns in CSS Grid: auto-fill vs auto-fit</a></p>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HTML 小知識 - Web Storage vs Cookie</title>
+    <url>/html/20200903/d495ed5d/</url>
+    <content><![CDATA[<p><img src="https://i.imgur.com/wUurW9q.png" alt></p>
+<a id="more"></a>
+
+<h2 id="什麼是-Web-Storage-什麼是-Cookie"><a href="#什麼是-Web-Storage-什麼是-Cookie" class="headerlink" title="什麼是 Web Storage 什麼是 Cookie"></a>什麼是 Web Storage 什麼是 Cookie</h2><p>Web Storage 為瀏覽器中的儲存區，可把網頁的資料儲存在本地端，其作用如同 Cookie，Web Storage 和 Cookie 儲存的資料，皆以 key-value pair (鍵對值)的形式保存</p>
+<p>Web Storage 在一般瀏覽器下有 5 MB 的儲存空間，相比 Cookie 的 4 KB 來說相對來的大，另外 Cookie 中的資料會在本地端瀏覽器與伺服器之間，所以使用 Cookie 就要 request ，導致性能會降低，而 Web Storage 只會在本地端，所以減少了對伺服器的資料請求</p>
+<h3 id="應用場景"><a href="#應用場景" class="headerlink" title="應用場景"></a>應用場景</h3><p>由於 Cookie 的資料可以使用在用戶端與伺服器之間，所以比較常用在判斷用戶是否登錄。針對登錄過的用戶，伺服器會在用戶端登錄時往 Cookie 中插入一段加密過的唯一辨識單一用戶的辨識碼，下次只要讀取這個值就可以判斷當前用戶是否登錄，而 Web Storage 就能使用在曾瀏覽的商品或者購物車訊息這些只要用戶端就能做的事情，這樣也能減少瀏覽器送出 request 至伺服器</p>
+<h2 id="sessionStorage-vs-localStorage"><a href="#sessionStorage-vs-localStorage" class="headerlink" title="sessionStorage vs localStorage"></a>sessionStorage vs localStorage</h2><p>Web Storage 有兩種：sessionStorage 以及 localStorage，使用 windows 的打開 F12 ( HTML code )，進入 Application 會有 Storage 列表，就能從那邊看到 sessionStorage 和 localStorage 儲存的資料</p>
+<h3 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="#sessionStorage"></a>#sessionStorage</h3><p>屬於暫存性，僅在當下有效，關閉頁面或瀏覽器後被清除，通過 <code>Window.sessionStorage</code> 來使用</p>
+<h3 id="localStorage"><a href="#localStorage" class="headerlink" title="#localStorage"></a>#localStorage</h3><p>屬於永久性，瀏覽器關閉後，再次打開依然有效，通過 <code>Window.localStorage</code> 來使用</p>
+<h3 id="sessionStorage-和-localStorage-共通點"><a href="#sessionStorage-和-localStorage-共通點" class="headerlink" title="sessionStorage 和 localStorage 共通點"></a>sessionStorage 和 localStorage 共通點</h3><ul>
+<li>在瀏覽器的隱私模式下面是不可讀取的</li>
+<li>目前所有的瀏覽器中都會把值型別限定為 string 型別，所以像是物件型別需要使用 JSON 轉換成字串型別<blockquote>
+<p>JASO 全名為 JavaScript Object Notation ( Javascript 物件符號)，可以把資料轉成字串型</p>
+</blockquote>
+</li>
+<li>儲存資料的時候，可用 Storage 物件的 setItem 方法，取值使用 getItem 方法</li>
+<li>不能被爬蟲抓取到</li>
+<li>在 IE8 以上的 IE 版本才支援</li>
+<li>本質上是對字串的讀取，如果儲存內容多的話會消耗記憶體空間</li>
+</ul>
+<h3 id="Storage的應用"><a href="#Storage的應用" class="headerlink" title="Storage的應用"></a>Storage的應用</h3><p>這邊使用 localStorage 當範例</p>
+<ul>
+<li><p>儲存資料</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">localStorage.setItem(<span class="string">"keyName"</span>,<span class="string">"dataName"</span>) <span class="comment">//前者為儲存項目的"鍵"，後者為鍵值</span></span><br><span class="line">localStorage.keyName = <span class="string">'dataName'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>讀取資料</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">localStorage.getItem(<span class="string">"keyName"</span>) <span class="comment">//讀取儲存在 localStorage 鍵值為 keyName 裡的值</span></span><br><span class="line">localStorage.keyName <span class="comment">//讀取儲存在 localStorage 鍵值為 keyName 裡的值</span></span><br><span class="line">localStorage.valueOf() <span class="comment">//讀取儲存在 localStorage 上的所有資料</span></span><br><span class="line">localStorage.key(<span class="number">0</span>) <span class="comment">// 讀取第一個鍵名</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>刪除資料</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">localStorage.removeItem(<span class="string">"keyName"</span>); <span class="comment">//刪除儲存在 localStorage 鍵值為 keyName 裡的值</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>將 JSON 儲存到 localStorage 裡</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> data = [</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">'小華'</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    sex: <span class="string">'male'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">'小花'</span>,</span><br><span class="line">    age: <span class="number">17</span>,</span><br><span class="line">    sex: <span class="string">'female'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">'小美'</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    sex: <span class="string">'female'</span></span><br><span class="line">  &#125;,</span><br><span class="line">]</span><br><span class="line">localStorage.setItem(<span class="string">"people"</span>, <span class="built_in">JSON</span>.stringify(data)); <span class="comment">// JSON 轉為字串存到 localStorage 裡</span></span><br><span class="line"><span class="keyword">const</span> newPeople = <span class="built_in">JSON</span>.parse(localStorage.getItem(<span class="string">"people"</span>)); <span class="comment">//把取出的 localStorage 資料使用 JSON 轉換成 JavaScript 的數值或是物件</span></span><br><span class="line"><span class="built_in">console</span>.log(newPeople)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清空</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">localStorage.clear()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS 趴趴走 - ES6 Fetch 應用</title>
+    <url>/javascript/20200727/483210d8/</url>
+    <content><![CDATA[<p><img src="https://i.imgur.com/n9iFZz1.png" alt></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近參加了六角的js學徒特訓班，剛好需要抓取遠端資料，之前有嘗試過<code>XMLHttpRequest</code>和框架<code>axios</code>，這次來試試看如果使用Fetch是要怎麼抓取資料</p>
+<a id="more"></a>
+
+<h2 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h2><p><code>Fetch</code>和<code>XMLHttpRequest</code>一樣都是用來存取伺服器端的資料，以往使用<code>XMLHttpRequest</code>時會發現步驟很多</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 宣告一個XMLHttpRequest物件</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest(); </span><br><span class="line"><span class="comment">// 定義連線方式</span></span><br><span class="line">xhr.open(<span class="string">'get'</span>, <span class="string">'網址'</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 送出請求</span></span><br><span class="line">xhr.send();</span><br><span class="line"><span class="comment">// 如果成功就執行 </span></span><br><span class="line">xhr.onload=<span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">console</span>.log(xhr.responseText); </span><br><span class="line"><span class="comment">// 失敗就 xhrError()</span></span><br><span class="line">xhr.onerror=<span class="function">(<span class="params">err</span>)=&gt;</span> <span class="built_in">console</span>.log(err);</span><br></pre></td></tr></table></figure>
+
+<p>而Fetch就大大減少這些步驟，使用<code>Promise</code>的方式抓取資料，借用六角學院的api(感謝六角學院提供練習XD)</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fetch(<span class="string">'https://raw.githubusercontent.com/hexschool/hexschoolNewbieJS/master/data.json'</span>)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res.json());</span><br><span class="line">    <span class="keyword">return</span> res.json(); <span class="comment">//透過json()方法獲取資訊</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">err</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>我們返回了<code>res.json()</code>獲取資料後，此時的資料得到的是<code>promise</code>對象，而我們所要的值就在<code>PromiseValue</code>裡面</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="string">[[PromiseStatus]]</span>: <span class="string">"fulfilled"</span> //實現（fulfilled）：表示操作成功完成。</span><br><span class="line"><span class="string">[[PromiseValue]]</span>: Array(<span class="number">221</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在Promise的文件中，<code>[[PromiseValue]]</code>是個內部變量，外部無法得到，只能在<code>then</code>中獲取。所以需要第二次的<code>then</code>來接收</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> url=<span class="string">'https://raw.githubusercontent.com/hexschool/hexschoolNewbieJS/master/data.json'</span>;</span><br><span class="line">fetch(url)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> res.json(); <span class="comment">//返回的的資料會傳到下一個then</span></span><br><span class="line">&#125;).then(<span class="function">(<span class="params">data</span>)=&gt;</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>最後記得要加上<code>catch</code>(失敗導向)</p>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>使用Fetch過後，真的比以往的XMLHttpRequest或jQuery AJAX來的簡潔，認為跟框架的axios有一點像；這次剛好只碰到GET，以後看有沒有機會學習到其他方法~</p>
+<hr>
+<h3 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h3><p><a href="https://ithelp.ithome.com.tw/articles/10194388" target="_blank" rel="noopener">ES6 Fetch 遠端資料方法</a><br><a href="https://www.itdaan.com/tw/36577774e82c253cffa236a9608d8aa4" target="_blank" rel="noopener">結合promise對原生fetch的兩個then用法理解</a><br><a href="https://www.oxxostudio.tw/articles/201908/js-fetch.html" target="_blank" rel="noopener">JavaScript Fetch API 使用教學</a></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>AJAX</tag>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS 趴趴走 - ES6 關於 const 的宣告</title>
+    <url>/javascript/20200728/eccdaf7f/</url>
+    <content><![CDATA[<p><img src="https://i.imgur.com/n9iFZz1.png" alt></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天的文章啟發於六角學院的Js學徒特訓班第三十七關，除了<code>var</code>宣告變數之外，我們也可以使用ES6的<code>let</code>和<code>const</code></p>
+<a id="more"></a>
+
+
+<h2 id="let和const宣告"><a href="#let和const宣告" class="headerlink" title="let和const宣告"></a>let和const宣告</h2><p>首先了解let和const都屬於用來宣告的，他們兩者最大差異是</p>
+<ul>
+<li>let: 用來宣告變數，可以被重新指定值</li>
+<li>const: 用來宣告常數(變數)，不能重新指定值</li>
+</ul>
+<p>所以當我們宣告的時候，就會寫成這樣</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a=<span class="string">'曉華'</span>;</span><br><span class="line"><span class="keyword">const</span> b=<span class="string">'小鎮'</span>;</span><br><span class="line">a=<span class="string">'小明'</span>;</span><br><span class="line">b=<span class="string">'aaa'</span>;<span class="comment">//Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
+
+<p>使用<code>const</code>宣告就不能改值了，會發生錯誤</p>
+<h2 id="const宣告物件和陣列"><a href="#const宣告物件和陣列" class="headerlink" title="const宣告物件和陣列"></a>const宣告物件和陣列</h2><p>當你要宣告會改變值的時，下意識會認為那就使用let，這次我們使用const宣告物件和陣列試試看</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr=[];</span><br><span class="line">arr.push(<span class="number">123</span>);</span><br></pre></td></tr></table></figure>
+
+<p>會發現竟然沒出錯，這是因為JS中的陣列和物件都是屬於 Pass by reference，也就是我們所說的傳址，以上述範例來說它只是把數值放在同一個記憶體的位置，沒有指向其他地方，自然就不會產生錯誤了</p>
+<p>這點物件也是同樣的</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj=&#123;</span><br><span class="line">    a:<span class="string">'小名'</span>,</span><br><span class="line">    b:<span class="string">'曉華'</span>,</span><br><span class="line">    c:<span class="string">'小鎮'</span></span><br><span class="line">&#125;;</span><br><span class="line">obj.a=<span class="string">'名小小'</span></span><br><span class="line"><span class="built_in">console</span>.log(obj) <span class="comment">//&#123;a: "名小小", b: "曉華", c: "小鎮"&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>但要記住，一旦跟改位置，就不能使用<code>const</code>方式宣告了</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj2=&#123;</span><br><span class="line">    a:<span class="string">'小名'</span>,</span><br><span class="line">    b:<span class="string">'曉華'</span>,</span><br><span class="line">    c:<span class="string">'小鎮'</span></span><br><span class="line">&#125;;</span><br><span class="line">obj2=&#123;</span><br><span class="line"> a:<span class="string">'名小小'</span> </span><br><span class="line">&#125;<span class="comment">//Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
+
+<p>最後放個範例</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'小名'</span>;</span><br><span class="line"><span class="keyword">const</span> age = <span class="number">16</span>;</span><br><span class="line"><span class="keyword">let</span> city = <span class="string">'台北市'</span>;</span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name: <span class="string">'曉華'</span>,</span><br><span class="line">  height: <span class="number">155</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> myWallet = &#123;</span><br><span class="line">  money: <span class="number">1000</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">city = <span class="string">'台中市'</span>;</span><br><span class="line">person.height = <span class="number">160</span>;</span><br><span class="line">myWallet = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>可以看出來，用<code>const</code>宣告的值為不可更改，若使用物件更改為同一個記憶體位置可以使用<code>const</code>，若重新指向新的記憶體則依然使用<code>let</code></p>
+<hr>
+<h3 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h3><blockquote>
+<p>對於 Pass by reference 可以參考以下文章</p>
+</blockquote>
+<p><a href="https://ithelp.ithome.com.tw/articles/10191057" target="_blank" rel="noopener">重新認識 JavaScript: Day 05 JavaScript 是「傳值」或「傳址」？</a><br><a href="https://pjchender.blogspot.com/2016/03/javascriptby-referenceby-value.html" target="_blank" rel="noopener">談談 JavaScript 中 by reference 和 by value 的重要觀念</a></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>ES6</tag>
       </tags>
   </entry>
   <entry>
@@ -205,83 +486,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CSS - 初步了解 CSS Gird - (變化版面)</title>
-    <url>/css/20200907/64dd8c62/</url>
-    <content><![CDATA[<p><img src="https://i.imgur.com/AEcGgSo.png" alt></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在上一篇我們知道如何使用 CSS Grid 的固定版面樣式，這一篇就來筆記一下如何變化</p>
-<a id="more"></a>
-
-<h3 id="子層指定格線"><a href="#子層指定格線" class="headerlink" title="子層指定格線"></a>子層指定格線</h3><p>上一篇我們在父層使用 <code>grid-template-areas</code> 設定版面位置，但如果使用這個方式，你不能交錯也不能重疊，所以我們可以使用子層來指定欄位位置</p>
-<h3 id="grid-column-start-grid-column-end-grid-row-start-grid-row-end"><a href="#grid-column-start-grid-column-end-grid-row-start-grid-row-end" class="headerlink" title="grid-column-start, grid-column-end, grid-row-start, grid-row-end"></a>grid-column-start, grid-column-end, grid-row-start, grid-row-end</h3><ul>
-<li>grid-column-start : 欄線開始</li>
-<li>grid-column-end  : 欄線結束</li>
-<li>grid-row-start : 列線開始</li>
-<li>grid-row-end : 列線結束</li>
-</ul>
-<p>我們設定 <code>grid-template-columns</code>, <code>grid-template-rows</code></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="number">40px</span> <span class="number">50px</span> auto <span class="number">50px</span> <span class="number">40px</span>;</span><br><span class="line">  <span class="attribute">grid-template-rows</span>: <span class="number">25%</span> <span class="number">100px</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>產生的圖如下圖</p>
-<p><img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-column-row-start-end-01.svg" alt="圖源來自CSS-Tricks"><br><small>圖片來自<a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">CSS-Tricks</a></small></p>
-<p>從圖上可以了解，線是從最外圍(最起點)開始算到另一邊的最外圍(最終點)，所以以圖片來看 <code>column</code> 一共有6條線，而 <code>row</code> 有4條線</p>
-<p>得到線條的方式有</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column-start</span>: &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;</span><br><span class="line">  <span class="attribute">grid-column-end</span>: &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;</span><br><span class="line">  <span class="attribute">grid-row-start</span>: &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;</span><br><span class="line">  <span class="attribute">grid-row-end</span>: &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>line : 用數字表示 物件 所在的線</li>
-<li>span <code>number</code> : 物件所佔用的欄位數；使用此方式，會計算到佔用欄位數的下一行</li>
-<li>span <code>name</code> : 物件所在的 grid 名稱；使用此方式，會計算到物件 gird 名稱的下一行</li>
-<li>auto 自動 </li>
-</ul>
-<p>以上面圖為範例就能這樣使用</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column-start</span>: <span class="number">2</span>; <span class="comment">/*從第2條線開始計算*/</span></span><br><span class="line">  <span class="attribute">grid-column-end</span>: <span class="number">5</span>;  <span class="comment">/*結束到第5條線*/</span></span><br><span class="line">  <span class="attribute">grid-row-start</span>: <span class="number">1</span>; <span class="comment">/*從第1條線開始計算*/</span></span><br><span class="line">  <span class="attribute">grid-row-end</span>: span <span class="number">2</span>;  <span class="comment">/*橫跨2個欄位後結束*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="只橫跨一個欄位"><a href="#只橫跨一個欄位" class="headerlink" title="只橫跨一個欄位"></a>只橫跨一個欄位</h3><p>另外，如果你只想要橫跨一個欄位的話，可以使用 start 或者 end 其中一個就好</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item-a</span>&#123;</span><br><span class="line">  <span class="attribute">grid-column-start</span>: <span class="number">2</span>; <span class="comment">/*從第2條欄線開始從左到右開始計算一個欄位數*/</span></span><br><span class="line">  <span class="attribute">grid-row-end</span>: <span class="number">3</span>; <span class="comment">/*第3條列線結束從下到上計算一個欄位數*/</span></span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#faa</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="負數"><a href="#負數" class="headerlink" title="負數"></a>負數</h3><p>除了正數以外，也可以只用負數計算</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item-b</span>&#123;</span><br><span class="line">  <span class="attribute">grid-column-end</span>: -<span class="number">3</span>; <span class="comment">/*第-3條欄結束線從右到左計算一個欄位數*/</span></span><br><span class="line">  <span class="attribute">grid-row-start</span>: -<span class="number">4</span>; <span class="comment">/*第-4條線開始計從上到下算一個欄位數*/</span></span><br><span class="line">  <span class="attribute">background</span>:<span class="number">#aaf</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="grid-column-grid-row"><a href="#grid-column-grid-row" class="headerlink" title="grid-column, grid-row"></a>grid-column, grid-row</h2><ul>
-<li>grid-column : <code>grid-column-start</code> + <code>grid-column-end</code> 的結合，使用 “<b>/<b>“ 連結在一起</b></b></li>
-<li>grid-row :<code>grid-row-start</code> + <code>grid-row-end 的結合</code>，使用 “<b>/<b>“ 連結在一起</b></b></li>
-</ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item-c</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column</span>:<span class="number">3</span>/span <span class="number">2</span>; <span class="comment">/*第3條欄開始橫跨2個欄位數*/</span></span><br><span class="line">  <span class="attribute">grid-row</span>:-<span class="number">2</span>/-<span class="number">1</span>; <span class="comment">/*第-2條列開始到-1條線結束*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-column-row.svg" alt="圖源來自CSS-Tricks"><br><small>圖片來自<a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">CSS-Tricks</a></small></p>
-<h3 id="grid-area"><a href="#grid-area" class="headerlink" title="grid-area"></a>grid-area</h3><p><code>grid-area</code>不只能自訂區域名稱給予<code>grid-template-areas</code>定義位置，也能指定 grid 線數設定範圍</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"> <span class="selector-class">.item-d</span> &#123;</span><br><span class="line">   <span class="comment">/* 列線開始線，欄線開始線，列線結束線，欄線結束線 */</span></span><br><span class="line">  <span class="attribute">grid-area</span>: &lt;row-start&gt; / &lt;column-start&gt; / &lt;row-end&gt; / &lt;column-end&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>以上給個範例:</p>
-<iframe height="300" style="width: 100%;" scrolling="no" title="CSS  gird 子層設定格線" src="https://codepen.io/yennnnn/embed/wvGpEgV?height=300&theme-id=37551&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/yennnnn/pen/wvGpEgV" target="_blank" rel="noopener">CSS  gird 子層設定格線</a> by yanennn
-  (<a href="https://codepen.io/yennnnn" target="_blank" rel="noopener">@yennnnn</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
-</iframe>
-
-<h2 id="父層自動欄高-自動列高"><a href="#父層自動欄高-自動列高" class="headerlink" title="父層自動欄高/自動列高"></a>父層自動欄高/自動列高</h2><p><code>grid-template-columns</code> , <code>grid-template-rows</code> 是需要設定欄位寬高，但如果格子很多的話，這樣就不方便了，所以我們就可以使用父層自動計算欄高/列高</p>
-<h3 id="grid-auto-columns-grid-auto-rows"><a href="#grid-auto-columns-grid-auto-rows" class="headerlink" title="grid-auto-columns grid-auto-rows"></a>grid-auto-columns grid-auto-rows</h3><p>自動生成的欄位的大小</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">grid-auto-columns</span>: &lt;track-size&gt; ...;</span><br><span class="line">  <span class="attribute">grid-auto-rows</span>: &lt;track-size&gt; ...;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>首先我們給予的長寬</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">grid-auto-columns</span>: <span class="number">60px</span>;</span><br><span class="line">  <span class="attribute">grid-auto-rows</span>: <span class="number">90px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>意思就是每個欄位寬為60px，高都是90px;<br><img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-auto-columns-rows-01.svg" alt="圖片來自css-tricks"><br><small>圖片來自<a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">CSS-Tricks</a></small></p>
-<p>這時我們再定義子層的配置</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item-a</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column</span>: <span class="number">1</span> / <span class="number">2</span>;</span><br><span class="line">  <span class="attribute">grid-row</span>: <span class="number">2</span> / <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item-b</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column</span>: <span class="number">5</span> / <span class="number">6</span>;</span><br><span class="line">  <span class="attribute">grid-row</span>: <span class="number">2</span> / <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-auto-columns-rows-03.svg" alt="圖片來自css-tricks"><br><small>圖片來自<a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">CSS-Tricks</a></small></p>
-<p>你會發現即使 <code>item-b</code> 的欄，我們從未定義第5或6列，但因為 <code>grid-auto-columns</code> 的關係，中間產生了隱藏格線，484很神奇<del>~</del></p>
-<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>最後整理上面所學到的屬性:<br><code>grid-column-start</code>: 子層欄線起始<br><code>grid-column-end</code>: 子層欄線結束<br><code>grid-row-start</code>: 子層列線起始<br><code>grid-row-end</code>: 子層列線結束<br><code>grid-column</code>: 子層欄線起始/結束<br><code>grid-row</code>: 子層列線起始/結束<br><code>grid-auto-columns</code>: 自動欄寬<br><code>grid-auto-rows</code>: 自動列高</p>
-<h2 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h2><p><a href="https://www.youtube.com/watch?v=fYcz3FUqv7M" target="_blank" rel="noopener">CSS GRID / CSS格線好好玩【完整版】 | CSS教學 | CSS格線</a><br><a href="https://wcc723.github.io/css/2017/03/22/css-grid-layout/" target="_blank" rel="noopener">CSS Grid 屬性介紹</a><br><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">A Complete Guide to Grid</a><br>圖片來自<a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">CSS-Tricks</a></p>
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-      <tags>
-        <tag>CSS3</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>六角 - JS 實戰班心得 </title>
     <url>/learnshare/20200825/c63f9c74/</url>
     <content><![CDATA[<p><img src="https://i.imgur.com/ley4HZ3.png" alt></p>
@@ -301,56 +505,6 @@
       <tags>
         <tag>活動心得</tag>
         <tag>六角學院</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>HTML 小知識 - Web Storage vs Cookie</title>
-    <url>/html/20200903/d495ed5d/</url>
-    <content><![CDATA[<p><img src="https://i.imgur.com/wUurW9q.png" alt></p>
-<a id="more"></a>
-
-<h2 id="什麼是-Web-Storage-什麼是-Cookie"><a href="#什麼是-Web-Storage-什麼是-Cookie" class="headerlink" title="什麼是 Web Storage 什麼是 Cookie"></a>什麼是 Web Storage 什麼是 Cookie</h2><p>Web Storage 為瀏覽器中的儲存區，可把網頁的資料儲存在本地端，其作用如同 Cookie，Web Storage 和 Cookie 儲存的資料，皆以 key-value pair (鍵對值)的形式保存</p>
-<p>Web Storage 在一般瀏覽器下有 5 MB 的儲存空間，相比 Cookie 的 4 KB 來說相對來的大，另外 Cookie 中的資料會在本地端瀏覽器與伺服器之間，所以使用 Cookie 就要 request ，導致性能會降低，而 Web Storage 只會在本地端，所以減少了對伺服器的資料請求</p>
-<h3 id="應用場景"><a href="#應用場景" class="headerlink" title="應用場景"></a>應用場景</h3><p>由於 Cookie 的資料可以使用在用戶端與伺服器之間，所以比較常用在判斷用戶是否登錄。針對登錄過的用戶，伺服器會在用戶端登錄時往 Cookie 中插入一段加密過的唯一辨識單一用戶的辨識碼，下次只要讀取這個值就可以判斷當前用戶是否登錄，而 Web Storage 就能使用在曾瀏覽的商品或者購物車訊息這些只要用戶端就能做的事情，這樣也能減少瀏覽器送出 request 至伺服器</p>
-<h2 id="sessionStorage-vs-localStorage"><a href="#sessionStorage-vs-localStorage" class="headerlink" title="sessionStorage vs localStorage"></a>sessionStorage vs localStorage</h2><p>Web Storage 有兩種：sessionStorage 以及 localStorage，使用 windows 的打開 F12 ( HTML code )，進入 Application 會有 Storage 列表，就能從那邊看到 sessionStorage 和 localStorage 儲存的資料</p>
-<h3 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="#sessionStorage"></a>#sessionStorage</h3><p>屬於暫存性，僅在當下有效，關閉頁面或瀏覽器後被清除，通過 <code>Window.sessionStorage</code> 來使用</p>
-<h3 id="localStorage"><a href="#localStorage" class="headerlink" title="#localStorage"></a>#localStorage</h3><p>屬於永久性，瀏覽器關閉後，再次打開依然有效，通過 <code>Window.localStorage</code> 來使用</p>
-<h3 id="sessionStorage-和-localStorage-共通點"><a href="#sessionStorage-和-localStorage-共通點" class="headerlink" title="sessionStorage 和 localStorage 共通點"></a>sessionStorage 和 localStorage 共通點</h3><ul>
-<li>在瀏覽器的隱私模式下面是不可讀取的</li>
-<li>目前所有的瀏覽器中都會把值型別限定為 string 型別，所以像是物件型別需要使用 JSON 轉換成字串型別<blockquote>
-<p>JASO 全名為 JavaScript Object Notation ( Javascript 物件符號)，可以把資料轉成字串型</p>
-</blockquote>
-</li>
-<li>儲存資料的時候，可用 Storage 物件的 setItem 方法，取值使用 getItem 方法</li>
-<li>不能被爬蟲抓取到</li>
-<li>在 IE8 以上的 IE 版本才支援</li>
-<li>本質上是對字串的讀取，如果儲存內容多的話會消耗記憶體空間</li>
-</ul>
-<h3 id="Storage的應用"><a href="#Storage的應用" class="headerlink" title="Storage的應用"></a>Storage的應用</h3><p>這邊使用 localStorage 當範例</p>
-<ul>
-<li><p>儲存資料</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">localStorage.setItem(<span class="string">"keyName"</span>,<span class="string">"dataName"</span>) <span class="comment">//前者為儲存項目的"鍵"，後者為鍵值</span></span><br><span class="line">localStorage.keyName = <span class="string">'dataName'</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>讀取資料</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">localStorage.getItem(<span class="string">"keyName"</span>) <span class="comment">//讀取儲存在 localStorage 鍵值為 keyName 裡的值</span></span><br><span class="line">localStorage.keyName <span class="comment">//讀取儲存在 localStorage 鍵值為 keyName 裡的值</span></span><br><span class="line">localStorage.valueOf() <span class="comment">//讀取儲存在 localStorage 上的所有資料</span></span><br><span class="line">localStorage.key(<span class="number">0</span>) <span class="comment">// 讀取第一個鍵名</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>刪除資料</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">localStorage.removeItem(<span class="string">"keyName"</span>); <span class="comment">//刪除儲存在 localStorage 鍵值為 keyName 裡的值</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>將 JSON 儲存到 localStorage 裡</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> data = [</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">'小華'</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    sex: <span class="string">'male'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">'小花'</span>,</span><br><span class="line">    age: <span class="number">17</span>,</span><br><span class="line">    sex: <span class="string">'female'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">'小美'</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    sex: <span class="string">'female'</span></span><br><span class="line">  &#125;,</span><br><span class="line">]</span><br><span class="line">localStorage.setItem(<span class="string">"people"</span>, <span class="built_in">JSON</span>.stringify(data)); <span class="comment">// JSON 轉為字串存到 localStorage 裡</span></span><br><span class="line"><span class="keyword">const</span> newPeople = <span class="built_in">JSON</span>.parse(localStorage.getItem(<span class="string">"people"</span>)); <span class="comment">//把取出的 localStorage 資料使用 JSON 轉換成 JavaScript 的數值或是物件</span></span><br><span class="line"><span class="built_in">console</span>.log(newPeople)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>清空</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">localStorage.clear()</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>HTML</category>
-      </categories>
-      <tags>
-        <tag>HTML</tag>
       </tags>
   </entry>
   <entry>
@@ -438,84 +592,6 @@
 <td align="center">有</td>
 </tr>
 </tbody></table>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>ES6</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS 趴趴走 - ES6 Fetch 應用</title>
-    <url>/javascript/20200727/483210d8/</url>
-    <content><![CDATA[<p><img src="https://i.imgur.com/n9iFZz1.png" alt></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近參加了六角的js學徒特訓班，剛好需要抓取遠端資料，之前有嘗試過<code>XMLHttpRequest</code>和框架<code>axios</code>，這次來試試看如果使用Fetch是要怎麼抓取資料</p>
-<a id="more"></a>
-
-<h2 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h2><p><code>Fetch</code>和<code>XMLHttpRequest</code>一樣都是用來存取伺服器端的資料，以往使用<code>XMLHttpRequest</code>時會發現步驟很多</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 宣告一個XMLHttpRequest物件</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest(); </span><br><span class="line"><span class="comment">// 定義連線方式</span></span><br><span class="line">xhr.open(<span class="string">'get'</span>, <span class="string">'網址'</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 送出請求</span></span><br><span class="line">xhr.send();</span><br><span class="line"><span class="comment">// 如果成功就執行 </span></span><br><span class="line">xhr.onload=<span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">console</span>.log(xhr.responseText); </span><br><span class="line"><span class="comment">// 失敗就 xhrError()</span></span><br><span class="line">xhr.onerror=<span class="function">(<span class="params">err</span>)=&gt;</span> <span class="built_in">console</span>.log(err);</span><br></pre></td></tr></table></figure>
-
-<p>而Fetch就大大減少這些步驟，使用<code>Promise</code>的方式抓取資料，借用六角學院的api(感謝六角學院提供練習XD)</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fetch(<span class="string">'https://raw.githubusercontent.com/hexschool/hexschoolNewbieJS/master/data.json'</span>)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res.json());</span><br><span class="line">    <span class="keyword">return</span> res.json(); <span class="comment">//透過json()方法獲取資訊</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">err</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-
-<p>我們返回了<code>res.json()</code>獲取資料後，此時的資料得到的是<code>promise</code>對象，而我們所要的值就在<code>PromiseValue</code>裡面</p>
-<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="string">[[PromiseStatus]]</span>: <span class="string">"fulfilled"</span> //實現（fulfilled）：表示操作成功完成。</span><br><span class="line"><span class="string">[[PromiseValue]]</span>: Array(<span class="number">221</span>)</span><br></pre></td></tr></table></figure>
-
-<p>在Promise的文件中，<code>[[PromiseValue]]</code>是個內部變量，外部無法得到，只能在<code>then</code>中獲取。所以需要第二次的<code>then</code>來接收</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> url=<span class="string">'https://raw.githubusercontent.com/hexschool/hexschoolNewbieJS/master/data.json'</span>;</span><br><span class="line">fetch(url)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> res.json(); <span class="comment">//返回的的資料會傳到下一個then</span></span><br><span class="line">&#125;).then(<span class="function">(<span class="params">data</span>)=&gt;</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>最後記得要加上<code>catch</code>(失敗導向)</p>
-<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>使用Fetch過後，真的比以往的XMLHttpRequest或jQuery AJAX來的簡潔，認為跟框架的axios有一點像；這次剛好只碰到GET，以後看有沒有機會學習到其他方法~</p>
-<hr>
-<h3 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h3><p><a href="https://ithelp.ithome.com.tw/articles/10194388" target="_blank" rel="noopener">ES6 Fetch 遠端資料方法</a><br><a href="https://www.itdaan.com/tw/36577774e82c253cffa236a9608d8aa4" target="_blank" rel="noopener">結合promise對原生fetch的兩個then用法理解</a><br><a href="https://www.oxxostudio.tw/articles/201908/js-fetch.html" target="_blank" rel="noopener">JavaScript Fetch API 使用教學</a></p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>ES6</tag>
-        <tag>AJAX</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS 趴趴走 - ES6 關於 const 的宣告</title>
-    <url>/javascript/20200728/eccdaf7f/</url>
-    <content><![CDATA[<p><img src="https://i.imgur.com/n9iFZz1.png" alt></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天的文章啟發於六角學院的Js學徒特訓班第三十七關，除了<code>var</code>宣告變數之外，我們也可以使用ES6的<code>let</code>和<code>const</code></p>
-<a id="more"></a>
-
-
-<h2 id="let和const宣告"><a href="#let和const宣告" class="headerlink" title="let和const宣告"></a>let和const宣告</h2><p>首先了解let和const都屬於用來宣告的，他們兩者最大差異是</p>
-<ul>
-<li>let: 用來宣告變數，可以被重新指定值</li>
-<li>const: 用來宣告常數(變數)，不能重新指定值</li>
-</ul>
-<p>所以當我們宣告的時候，就會寫成這樣</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a=<span class="string">'曉華'</span>;</span><br><span class="line"><span class="keyword">const</span> b=<span class="string">'小鎮'</span>;</span><br><span class="line">a=<span class="string">'小明'</span>;</span><br><span class="line">b=<span class="string">'aaa'</span>;<span class="comment">//Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
-
-<p>使用<code>const</code>宣告就不能改值了，會發生錯誤</p>
-<h2 id="const宣告物件和陣列"><a href="#const宣告物件和陣列" class="headerlink" title="const宣告物件和陣列"></a>const宣告物件和陣列</h2><p>當你要宣告會改變值的時，下意識會認為那就使用let，這次我們使用const宣告物件和陣列試試看</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr=[];</span><br><span class="line">arr.push(<span class="number">123</span>);</span><br></pre></td></tr></table></figure>
-
-<p>會發現竟然沒出錯，這是因為JS中的陣列和物件都是屬於 Pass by reference，也就是我們所說的傳址，以上述範例來說它只是把數值放在同一個記憶體的位置，沒有指向其他地方，自然就不會產生錯誤了</p>
-<p>這點物件也是同樣的</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj=&#123;</span><br><span class="line">    a:<span class="string">'小名'</span>,</span><br><span class="line">    b:<span class="string">'曉華'</span>,</span><br><span class="line">    c:<span class="string">'小鎮'</span></span><br><span class="line">&#125;;</span><br><span class="line">obj.a=<span class="string">'名小小'</span></span><br><span class="line"><span class="built_in">console</span>.log(obj) <span class="comment">//&#123;a: "名小小", b: "曉華", c: "小鎮"&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>但要記住，一旦跟改位置，就不能使用<code>const</code>方式宣告了</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj2=&#123;</span><br><span class="line">    a:<span class="string">'小名'</span>,</span><br><span class="line">    b:<span class="string">'曉華'</span>,</span><br><span class="line">    c:<span class="string">'小鎮'</span></span><br><span class="line">&#125;;</span><br><span class="line">obj2=&#123;</span><br><span class="line"> a:<span class="string">'名小小'</span> </span><br><span class="line">&#125;<span class="comment">//Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
-
-<p>最後放個範例</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'小名'</span>;</span><br><span class="line"><span class="keyword">const</span> age = <span class="number">16</span>;</span><br><span class="line"><span class="keyword">let</span> city = <span class="string">'台北市'</span>;</span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name: <span class="string">'曉華'</span>,</span><br><span class="line">  height: <span class="number">155</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> myWallet = &#123;</span><br><span class="line">  money: <span class="number">1000</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">city = <span class="string">'台中市'</span>;</span><br><span class="line">person.height = <span class="number">160</span>;</span><br><span class="line">myWallet = &#123;&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>可以看出來，用<code>const</code>宣告的值為不可更改，若使用物件更改為同一個記憶體位置可以使用<code>const</code>，若重新指向新的記憶體則依然使用<code>let</code></p>
-<hr>
-<h3 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h3><blockquote>
-<p>對於 Pass by reference 可以參考以下文章</p>
-</blockquote>
-<p><a href="https://ithelp.ithome.com.tw/articles/10191057" target="_blank" rel="noopener">重新認識 JavaScript: Day 05 JavaScript 是「傳值」或「傳址」？</a><br><a href="https://pjchender.blogspot.com/2016/03/javascriptby-referenceby-value.html" target="_blank" rel="noopener">談談 JavaScript 中 by reference 和 by value 的重要觀念</a></p>
 ]]></content>
       <categories>
         <category>JavaScript</category>
